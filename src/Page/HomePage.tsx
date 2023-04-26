@@ -1,4 +1,5 @@
 import styles from "./home.module.css";
+import ArrowForwardSharpIcon from "@mui/icons-material/ArrowForwardSharp";
 export default function HomePage() {
   return (
     <div className={styles.home}>
@@ -8,7 +9,10 @@ export default function HomePage() {
           <li>About</li>
           <li>Resource</li>
           <li>Contact</li>
-          <button className={styles.getStartedButton}>Go To</button>
+          <button className={styles.getStartedButton}>
+            Go To
+            <ArrowForwardSharpIcon style={{ color: "black" }} />
+          </button>
           <button className={styles.exerciseNowButton}>Exercise Now</button>
         </ul>
       </div>
@@ -17,7 +21,10 @@ export default function HomePage() {
           {" "}
           <h1>It's Now To Win Your Exams</h1>
           <h3>The First Ethiopia Exam Archive </h3>
-          <button className={styles.getStartedButton}>Get Started</button>
+          <button className={styles.exerciseNowButton}>
+            Get Started
+            <ArrowForwardSharpIcon style={{ color: "black" }} />
+          </button>
         </div>
         <div className={styles.rightHomeBody}>image</div>
       </div>

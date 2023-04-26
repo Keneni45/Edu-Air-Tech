@@ -25,10 +25,18 @@
   color: white;
   border: none;
   cursor: pointer;
+  align-items: center;
 }
 .homeBody {
   height: 80vh;
   background-color: aquamarine;
   display: flex;
   justify-content: space-between;
+}
+.leftHomeBody {
+  margin-left: 50px;
+  margin-top: 20vh;
+}
+.rightHomeBody {
+  margin-right: 50px;
 }
