@@ -40,3 +40,16 @@
 .rightHomeBody {
   margin-right: 50px;
 }
+.footer {
+  background-color: rgb(150, 224, 224);
+  height: 50vh;
+  display: flex;
+}
+.listFooter {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+.rightFooter {
+  margin-left: 50px;
+}
