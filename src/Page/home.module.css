@@ -8,7 +8,7 @@
   display: flex;
   float: right;
   gap: 3rem;
-  margin-right: 20px;
+  /* margin-right: 20px; */
 }
 .getStartedButton {
   background-color: white;
@@ -39,6 +39,18 @@
 }
 .rightHomeBody {
   margin-right: 50px;
+}
+.resource {
+  display: flex;
+  justify-content: space-between;
+}
+.about {
+  display: flex;
+  justify-content: space-between;
+}
+
+.aboutLeft {
+  width: 50%;
 }
 .footer {
   background-color: rgb(150, 224, 224);
