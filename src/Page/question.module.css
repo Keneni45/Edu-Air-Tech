@@ -1,0 +1,30 @@
+.questionBody {
+  margin-left: 70px;
+  margin-right: 70px;
+}
+.courseTitle {
+  text-align: center;
+  align-items: center;
+}
+.examHeader {
+  display: flex;
+  justify-content: space-between;
+}
+.studentName {
+  width: 70%;
+  height: 70px;
+  box-sizing: border-box;
+  border: 1px solid brown;
+  border-radius: 15px;
+  text-align: center;
+  align-items: center;
+}
+.timer {
+  width: 20%;
+  height: 70px;
+  box-sizing: border-box;
+  border: 1px solid brown;
+  border-radius: 15px;
+  text-align: center;
+  align-items: center;
+}

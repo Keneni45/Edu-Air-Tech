@@ -1,6 +1,9 @@
 import { useState } from "react";
 import styles from "./home.module.css";
 //import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import FacebookIcon from "@mui/icons-material/Facebook";
 
 export default function HomePage() {
   const [isHover, setIsHover] = useState(true);
@@ -58,7 +61,9 @@ export default function HomePage() {
       </div>
       <div>
         {" "}
-        <h2>Resource</h2>
+        <h2>
+          Resource <hr />
+        </h2>
       </div>
       <div className={styles.resource}>
         <div className={styles.leftResource}>
@@ -86,9 +91,15 @@ export default function HomePage() {
           <div>
             <ul className={styles.listFooter}>
               <li>Follow us :</li>
-              <li>Facebook</li>
-              <li>Linkedin</li>
-              <li>twittwer</li>
+              <li>
+                <FacebookIcon />
+              </li>
+              <li>
+                <LinkedInIcon />
+              </li>
+              <li>
+                <TwitterIcon />
+              </li>
             </ul>
           </div>
         </div>
