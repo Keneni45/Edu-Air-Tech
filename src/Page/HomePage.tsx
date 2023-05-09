@@ -1,6 +1,5 @@
 import { useState } from "react";
 import styles from "./home.module.css";
-//import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -91,7 +90,7 @@ export default function HomePage() {
           <div>
             <ul className={styles.listFooter}>
               <li>Follow us :</li>
-              <li>
+              <li className={styles.icon}>
                 <FacebookIcon />
               </li>
               <li>
@@ -105,12 +104,30 @@ export default function HomePage() {
         </div>
         <div className={styles.rightFooter}>
           <div>
+            <ul className={styles.rightFooter}>
+              <li>
+                <h4>Mobile App</h4>{" "}
+              </li>
+              <li>
+                {" "}
+                <h4>Community</h4>
+              </li>
+              <li>
+                <h4>Company</h4>
+              </li>
+            </ul>
             <ul>
-              <li>Community</li>
-              <li>Community</li>
-              <li>Community</li>
+              <li>ggggggg</li>
+              <li>gggggggggggg</li>
+              <li>dddddddddddd</li>
+            </ul>
+            <ul>
+              <li>ggggggg</li>
+              <li>gggggggggggg</li>
+              <li>dddddddddddd</li>
             </ul>
           </div>
+          <div></div>
         </div>
       </div>
     </div>
