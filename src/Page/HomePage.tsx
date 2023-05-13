@@ -1,63 +1,44 @@
-import { useState } from "react";
 import styles from "./home.module.css";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookIcon from "@mui/icons-material/Facebook";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
+import Modal from "../Component/Modal/Modal";
+import { useState } from "react";
 
 export default function HomePage() {
-  const [isHover, setIsHover] = useState(true);
-
-  function handleClick(e: any) {
-    setIsHover(e.target.value);
-  }
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div className={styles.home}>
       <div className={styles.homeNavbar}>
         <ul className={styles.ulHome}>
-          {isHover ? (
-            <li>Home</li>
-          ) : (
-            <li onClick={handleClick}>
-              Home <hr />
-            </li>
-          )}
-          {isHover ? (
-            <li onClick={handleClick}>About</li>
-          ) : (
-            <li>
-              About <hr />
-            </li>
-          )}
+          <li>Home</li>
+          <li>About</li>
+          <li>Resource</li>
+          <li>Contact</li>
 
-          {isHover ? (
-            <li>Resource</li>
-          ) : (
-            <li>
-              Resource <hr />
-            </li>
-          )}
+          <button
+            onClick={() => setIsOpen(true)}
+            className={styles.loginButton}>
+            Login
+          </button>
+          {/* <Modal open={isOpen}>bbbb</Modal> */}
 
-          {isHover ? (
-            <li>Contact</li>
-          ) : (
-            <li>
-              Contact <hr />
-            </li>
-          )}
-
-          <button className={styles.getStartedButton}>Go To</button>
-          <button className={styles.exerciseNowButton}>Exercise Now</button>
+          <button className={styles.exerciseNowButton}>Get Started</button>
         </ul>
-      </div>{" "}
+      </div>
+      {/* <button onClick={() => setIsOpen(true)}>login</button>
+      <Modal open={isOpen}>bbbb</Modal> */}
       <div className={styles.homeBody}>
         <div className={styles.leftHomeBody}>
-          {" "}
           <h1>It's Now To Win Your Exams</h1>
           <h3>The First Ethiopia Exam Archive </h3>
           <button className={styles.exerciseNowButton}>Get Started</button>
         </div>
         <div className={styles.rightHomeBody}>image</div>
       </div>
+      <CardContent />
       <div>
         {" "}
         <h2>
@@ -102,6 +83,7 @@ export default function HomePage() {
             </ul>
           </div>
         </div>
+
         <div className={styles.rightFooter}>
           <div>
             <ul className={styles.rightFooter}>
@@ -117,18 +99,21 @@ export default function HomePage() {
                 <h4>Company</h4>
               </li>
             </ul>
-            <ul>
-              <li>ggggggg</li>
-              <li>gggggggggggg</li>
-              <li>dddddddddddd</li>
-            </ul>
-            <ul>
-              <li>ggggggg</li>
-              <li>gggggggggggg</li>
-              <li>dddddddddddd</li>
-            </ul>
+            <div className={styles.list}>
+              <ul>
+                <li>ggggggg</li>
+                <li>gggggggggggg</li>
+                <li>dddddddddddd</li>
+
+                <li>ggggggg</li>
+                <li>gggggggggggg</li>
+                <li>dddddddddddd</li>
+              </ul>
+            </div>
           </div>
-          <div></div>
+          <div>
+            <Button>Login</Button>
+          </div>
         </div>
       </div>
     </div>

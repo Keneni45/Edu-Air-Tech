@@ -1,7 +1,8 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import HomePage from "./Page/HomePage";
-import ProgressBar from "./Component/ProgressBar";
-import QuestionPage from "./Page/QuestionPage";
+import ExamCard from "./Component/ExamCard";
+
+import ModalButton from "./Component/Modal/ModalButton";
 
 function App() {
   const router = createBrowserRouter([
@@ -9,8 +10,8 @@ function App() {
       path: "/",
       element: <HomePage />,
     },
-    { path: "bar", element: <ProgressBar /> },
-    { path: "question", element: <QuestionPage /> },
+    { path: "login", element: <ModalButton /> },
+    { path: "card", element: <ExamCard /> },
   ]);
   return (
     <div>
