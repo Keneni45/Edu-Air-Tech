@@ -47,3 +47,26 @@
   display: flex;
   justify-content: space-between;
 }
+
+.leftList {
+  list-style: none;
+  display: flex;
+  gap: 3rem;
+  margin-top: 40px;
+}
+.userContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-left: 38px;
+}
+.userDetailInfo {
+  height: 50px;
+  border-radius: 6px;
+  width: 480px;
+  background-color: rgb(226, 218, 233);
+}
+.userDeatilInfoList {
+  display: flex;
+  justify-content: space-between;
+}
