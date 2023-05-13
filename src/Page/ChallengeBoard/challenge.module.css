@@ -1,0 +1,49 @@
+.challengeBoard {
+  background-color: rgb(202, 240, 227);
+}
+.board {
+  display: flex;
+  justify-content: space-between;
+}
+.smartTable {
+  height: 220px;
+  width: 320px;
+  background-color: blue;
+  color: white;
+}
+.leaderText {
+  height: 60px;
+  width: 320px;
+  background-color: rgb(122, 140, 221);
+  color: rgb(177, 218, 255);
+}
+.userInfo {
+  height: 340px;
+  width: 320px;
+  background-color: blue;
+  color: white;
+}
+.performanceText {
+  height: 40px;
+  width: 320px;
+  background-color: rgb(122, 140, 221);
+  color: rgb(177, 218, 255);
+}
+.performanceTable {
+  height: 340px;
+  width: 320px;
+  background-color: blue;
+  color: white;
+}
+.challengeTable {
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 832px;
+  width: 980px;
+  background-color: white;
+  border-radius: 20px;
+}
+.tableHeader {
+  display: flex;
+  justify-content: space-between;
+}

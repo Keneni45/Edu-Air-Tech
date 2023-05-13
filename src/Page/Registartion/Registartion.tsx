@@ -1,7 +1,9 @@
 export default function Registartion() {
   return (
     <div>
-      <input type="text" />
+      <div>
+        <input type="text" />
+      </div>
       <input type="text" />
     </div>
   );
