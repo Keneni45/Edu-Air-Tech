@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Modal from "./Modal";
-import Login from "../../Page/Login/Login";
 
 const buttonStyle: any = {
   position: "relative",
