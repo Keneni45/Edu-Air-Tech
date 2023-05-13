@@ -33,7 +33,7 @@ export default function Modal({ children, open, onClose }: modalProps) {
       <div style={overLay} />
       <div style={modalStyle}>
         <button onClick={onClose} style={closeButton}>
-          <CloseSharpIcon color="white" />
+          <CloseSharpIcon />
         </button>
         {children}
 
