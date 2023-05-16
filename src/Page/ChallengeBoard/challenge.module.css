@@ -1,5 +1,5 @@
 .challengeBoard {
-  background-color: rgb(202, 240, 227);
+  background-color: rgb(236, 236, 236, 100%);
 }
 .board {
   display: flex;
@@ -10,37 +10,108 @@
   width: 320px;
   background-color: blue;
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
+
 .leaderText {
   height: 60px;
   width: 320px;
-  background-color: rgb(122, 140, 221);
-  color: rgb(177, 218, 255);
+  background-color: rgb(255, 255, 255, 100%);
+  color: rgb(85, 84, 84);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
+
 .userInfo {
   height: 340px;
   width: 320px;
   background-color: blue;
+  display: inline-flex;
+  justify-content: center;
+}
+.profileImg {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  background-color: rgb(217, 217, 217);
+  margin-top: 40px;
+}
+.userName {
+  margin-top: 140px;
+  margin-left: 20px;
   color: white;
 }
+.userTxt {
+  color: white;
+  height: 20px;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 .performanceText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 40px;
   width: 320px;
-  background-color: rgb(122, 140, 221);
-  color: rgb(177, 218, 255);
+  background-color: rgb(255, 255, 255);
+  color: rgb(85, 84, 84);
 }
 .performanceTable {
   height: 340px;
   width: 320px;
   background-color: blue;
   color: white;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.performButton {
+  align-items: center;
+  margin-top: 80px;
+}
+.rankBtn {
+  background-color: rgb(251, 188, 5);
+  width: 80px;
+  margin-left: 15px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  color: white;
+}
+.challengeBtn {
+  background-color: rgb(1, 164, 55);
+  margin-top: 10px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  color: white;
+}
+.accuracyBtn {
+  background-color: rgb(228, 228, 228);
+  margin-top: 10px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  color: white;
+  margin-left: 15px;
 }
 .challengeTable {
   margin-left: 20px;
   margin-right: 20px;
   height: 832px;
-  width: 980px;
-  background-color: white;
+  width: 990px;
+  background-color: rgb(248, 250, 248, 100%);
   border-radius: 20px;
 }
 .tableHeader {
@@ -61,12 +132,88 @@
   margin-left: 38px;
 }
 .userDetailInfo {
-  height: 50px;
+  height: 46px;
   border-radius: 6px;
   width: 480px;
-  background-color: rgb(226, 218, 233);
+  background-color: rgb(255, 255, 255, 100%);
 }
 .userDeatilInfoList {
   display: flex;
-  justify-content: space-between;
+}
+.rank {
+  margin-top: 10px;
+  margin-left: 15px;
+}
+.name {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: rgb(255, 255, 255);
+
+  margin-left: 30px;
+}
+.nameText {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.score {
+  margin-top: 10px;
+  margin-left: 50px;
+}
+.friends {
+  margin-top: 10px;
+  margin-left: 70px;
+}
+.challengeButton {
+  width: 120px;
+  height: 40px;
+  background-color: aqua;
+  cursor: pointer;
+  color: black;
+  border-radius: 8px;
+  border: none;
+}
+.profileButton {
+  width: 120px;
+  height: 40px;
+  background-color: aqua;
+  cursor: pointer;
+  color: black;
+  border-radius: 8px;
+  border: none;
+  margin-right: 30px;
+}
+.nextButton {
+  background-color: rgb(74, 58, 255);
+  border-radius: 8px;
+  margin-left: 400px;
+  cursor: pointer;
+  border: none;
+  color: white;
+  width: 80px;
+  height: 30px;
+  margin-top: 10px;
+}
+.footer {
+  /* display: flex; */
+  margin-left: 700px;
+  height: 320px;
+  background-color: white;
+}
+.row {
+  margin-left: -10px;
+}
+.footerList {
+  display: flex;
+}
+.listFooter {
+  display: flex;
+  list-style: none;
+  margin-top: 60px;
+  gap: 4rem;
+}
+.rowList {
+  font-size: 18px;
+  margin-top: 10px;
+  list-style: none;
 }

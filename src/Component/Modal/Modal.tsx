@@ -38,7 +38,8 @@ export default function Modal({ children, open, onClose }: modalProps) {
         {children}
 
         <div>
-          <Registartion />
+          {" "}
+          <Registartion />{" "}
         </div>
       </div>
     </>,
