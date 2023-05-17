@@ -18,19 +18,5 @@
   transform: translate(-50%, -50%);
   background-color: white;
   padding: 50px;
-  border-radius: 10px;
   z-index: 1000;
-}
-.login {
-  margin-left: 100px;
-  margin-right: 100px;
-}
-.loginBtn {
-  background-color: blue;
-  color: white;
-  margin-top: 10px;
-  border: none;
-  width: 200px;
-  height: 40px;
-  border-radius: 10px;
 }

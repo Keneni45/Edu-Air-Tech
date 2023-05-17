@@ -1,10 +1,11 @@
+import styles from "./registration.module.css";
+
 export default function Registartion() {
   return (
-    <div>
-      <div>
-        <input type="text" />
+    <div className={styles.loginBody}>
+      <div className={styles.loginOverLay}>
+        <div className={styles.loginStyle}>jjjjjj</div>
       </div>
-      <input type="text" />
     </div>
   );
 }
