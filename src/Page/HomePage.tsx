@@ -4,8 +4,10 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
-import Modal from "../Component/Modal/Modal";
+import { Link } from "react-router-dom";
 import { useState } from "react";
+import ArrowForwardSharpIcon from "@mui/icons-material/ArrowForwardSharp";
+//import { Button } from "@mui/material/IconButton";
 
 export default function HomePage() {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,19 +19,22 @@ export default function HomePage() {
           <li>About</li>
           <li>Resource</li>
           <li>Contact</li>
-
-          <button
-            onClick={() => setIsOpen(true)}
-            className={styles.loginButton}>
-            Login
-          </button>
-          {/* <Modal open={isOpen}>bbbb</Modal> */}
-
-          <button className={styles.exerciseNowButton}>Get Started</button>
+          <Link to="login">
+            <Button
+              sx={{ width: "160px", border: "solid 1px" }}
+              onClick={() => setIsOpen(true)}>
+              Login{" "}
+              <ArrowForwardSharpIcon
+                sx={{ marginLeft: "4px", height: "40px" }}
+              />
+            </Button>
+          </Link>
+          <Button variant="contained" sx={{ width: "160px" }}>
+            Get Started
+          </Button>
         </ul>
       </div>
-      {/* <button onClick={() => setIsOpen(true)}>login</button>
-      <Modal open={isOpen}>bbbb</Modal> */}
+
       <div className={styles.homeBody}>
         <div className={styles.leftHomeBody}>
           <h1>It's Now To Win Your Exams</h1>

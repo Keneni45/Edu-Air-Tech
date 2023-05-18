@@ -1,9 +1,8 @@
-.loginBody {
+.otpBody {
   position: relative;
   z-index: 1;
-  background-color: red;
 }
-.loginOverLay {
+.otpOverLay {
   position: fixed;
   left: 0;
   right: 0;
@@ -11,7 +10,7 @@
   bottom: 0;
   background-color: rgba(226, 192, 192, 0.7);
 }
-.loginStyle {
+.otpStyle {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -21,16 +20,9 @@
   border-radius: 10px;
   z-index: 1000;
 }
-.login {
+.otp {
   margin-left: 100px;
   margin-right: 100px;
-}
-.loginBtn {
-  background-color: blue;
-  color: white;
-  margin-top: 10px;
-  border: none;
-  width: 200px;
-  height: 40px;
-  border-radius: 10px;
+  margin-bottom: 40px;
+  margin-top: 60px;
 }

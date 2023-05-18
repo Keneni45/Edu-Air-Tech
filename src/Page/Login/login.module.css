@@ -22,15 +22,14 @@
   z-index: 1000;
 }
 .login {
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-left: 70px;
+  margin-right: 70px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
-.loginBtn {
-  background-color: blue;
-  color: white;
-  margin-top: 10px;
-  border: none;
-  width: 200px;
-  height: 40px;
-  border-radius: 10px;
+
+.unOrderedList {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
 }
