@@ -1,7 +1,6 @@
 .loginBody {
   position: relative;
   z-index: 1;
-  background-color: red;
 }
 .loginOverLay {
   position: fixed;
@@ -9,7 +8,7 @@
   right: 0;
   top: 0;
   bottom: 0;
-  background-color: rgba(226, 192, 192, 0.7);
+  background-color: rgb(243, 246, 255);
 }
 .loginStyle {
   position: fixed;
@@ -22,10 +21,10 @@
   z-index: 1000;
 }
 .login {
-  margin-left: 70px;
-  margin-right: 70px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
+  /* margin-top: 10px;
+  margin-bottom: 10px; */
 }
 
 .unOrderedList {

@@ -43,16 +43,21 @@ export default function Login() {
           {/* <div className={styles.login}></div>{" "}
           <div> */}
           <div className={styles.login}>
-            <p style={{ fontSize: "38px", fontWeight: "bold" }}>
+            <p
+              style={{
+                fontSize: "28px",
+                fontWeight: "bold",
+                marginLeft: "20px",
+              }}>
               Lets Sign In You
             </p>
-            {/* <h4>Welcome Back, </h4> <h4>You Have Been Missed</h4> */}
-            <p style={{ fontSize: "28px", marginLeft: "20px" }}>
+
+            <p style={{ fontSize: "28px", marginLeft: "15px" }}>
               Welcome Back, <br />{" "}
             </p>
             <p style={{ fontSize: "28px" }}> You Have Been Missed</p>
             <div style={{ marginLeft: "10px" }}>
-              <div style={{ marginTop: "20px" }}>
+              <div style={{ marginTop: "15px" }}>
                 <TextField
                   id="outlined-basic"
                   label="username"
@@ -60,7 +65,7 @@ export default function Login() {
                   sx={{ width: "260px" }}
                 />
               </div>
-              <div style={{ marginTop: "20px" }}>
+              <div style={{ marginTop: "15px" }}>
                 <TextField
                   id="outlined-basic"
                   label="password"

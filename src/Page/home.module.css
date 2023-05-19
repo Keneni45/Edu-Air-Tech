@@ -3,13 +3,15 @@
   height: 14vh;
   background-color: white;
 }
+.all {
+  background-color: rgb(243, 246, 255);
+}
 .ulHome {
   list-style: none;
   display: flex;
   float: right;
   gap: 3rem;
-  margin-top: 20px;
-  margin-right: 20px;
+  margin: 15px;
 }
 .loginButton {
   background-color: white;
@@ -31,17 +33,77 @@
   align-items: center;
 }
 .homeBody {
-  height: 80vh;
-  background-color: aquamarine;
+  height: 100%;
+
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 .leftHomeBody {
   margin-left: 50px;
   margin-top: 20vh;
 }
+.middleLine {
+  width: 250px;
+  margin-top: 80px;
+}
 .rightHomeBody {
   margin-right: 50px;
+}
+.imgBg {
+  margin-top: 40px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background-color: rgb(242, 242, 242);
+}
+.line {
+  background-color: rgb(212, 210, 227);
+  width: 240px;
+  height: 6px;
+  border-radius: 8px;
+  margin-left: 80px;
+}
+.line1 {
+  background-color: rgb(212, 210, 227);
+  width: 120px;
+  height: 6px;
+  border-radius: 8px;
+  margin-left: 80px;
+  margin-top: 10px;
+}
+.line2 {
+  background-color: rgb(212, 210, 227);
+  width: 280px;
+  margin-top: 160px;
+  height: 6px;
+  border-radius: 8px;
+}
+.line4 {
+  background-color: rgb(212, 210, 227);
+  width: 200px;
+  height: 6px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+.list6 {
+  margin-top: 10px;
+}
+.line3 {
+  background-color: rgb(212, 210, 227);
+  width: 260px;
+  margin-top: 120px;
+  height: 6px;
+  border-radius: 8px;
+  margin-left: 40px;
+}
+.line5 {
+  background-color: rgb(212, 210, 227);
+  width: 140px;
+  height: 6px;
+  border-radius: 8px;
+  margin-left: 40px;
+  margin-top: 10px;
 }
 .resource {
   display: flex;
