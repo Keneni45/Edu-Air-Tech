@@ -2,7 +2,6 @@ import styles from "./home.module.css";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -69,84 +68,223 @@ export default function HomePage() {
             <div className={styles.imgBg}></div>
           </div>
         </div>
-        <CardContent />
 
         <div>
-          {" "}
-          <h2>
-            Resource <hr />
-          </h2>
+          <p className={styles.resourceTxt}>Resource</p>
+          <div className={styles.resourceLine}></div>
         </div>
         <div className={styles.resource}>
-          <div className={styles.leftResource}>
-            Grade 9 <hr />
+          <div className={styles.resourceLeft}>
+            <div>
+              <h1 style={{ color: "rgb(29, 70, 69)" }}>Grade 9</h1>
+            </div>
+            <p style={{ marginTop: "40px", fontSize: "32px" }}>
+              This platform is best suited for garde 9. Plenty of exercise for
+              clean description can help you achieve your goal.
+            </p>
+            <div>
+              <Button
+                variant="contained"
+                style={{
+                  height: "30px",
+                  marginTop: "30px",
+                }}>
+                Exercise
+              </Button>
+              <Button
+                variant="contained"
+                style={{
+                  marginLeft: "2rem",
+                  height: "30px",
+                  marginTop: "30px",
+                }}>
+                Practice
+              </Button>
+              <Button
+                variant="contained"
+                style={{
+                  marginLeft: "2rem",
+                  height: "30px",
+                  marginTop: "30px",
+                }}>
+                General
+              </Button>
+            </div>
           </div>
-          <div className={styles.rightResource}>image</div>
+          <div className={styles.resourceRight}>image</div>
+        </div>
+        <div className={styles.resource1}>
+          <div className={styles.leftResource1}>left</div>
+          <div className={styles.rightResource1}>
+            <div>
+              <h1 style={{ color: "rgb(29, 70, 69)" }}>Grade 9</h1>
+            </div>
+            <p style={{ marginTop: "40px", fontSize: "32px" }}>
+              This platform is best suited for garde 9. Plenty of exercise for
+              clean description can help you achieve your goal.
+            </p>
+            <div>
+              <Button
+                variant="contained"
+                style={{
+                  height: "30px",
+                  marginTop: "30px",
+                }}>
+                Exercise
+              </Button>
+              <Button
+                variant="contained"
+                style={{
+                  marginLeft: "2rem",
+                  height: "30px",
+                  marginTop: "30px",
+                }}>
+                Practice
+              </Button>
+              <Button
+                variant="contained"
+                style={{
+                  marginLeft: "2rem",
+                  height: "30px",
+                  marginTop: "30px",
+                }}>
+                General
+              </Button>
+            </div>
+          </div>
+        </div>
+        <div className={styles.resource2}>
+          <div className={styles.leftResource2}>
+            <div>
+              <h1 style={{ color: "rgb(29, 70, 69)" }}>Grade 9</h1>
+            </div>
+            <p style={{ marginTop: "40px", fontSize: "32px" }}>
+              This platform is best suited for garde 9. Plenty of exercise for
+              clean description can help you achieve your goal.
+            </p>
+            <div>
+              <Button
+                variant="contained"
+                style={{
+                  height: "30px",
+                  marginTop: "30px",
+                }}>
+                Exercise
+              </Button>
+              <Button
+                variant="contained"
+                style={{
+                  marginLeft: "2rem",
+                  height: "30px",
+                  marginTop: "30px",
+                }}>
+                Practice
+              </Button>
+              <Button
+                variant="contained"
+                style={{
+                  marginLeft: "2rem",
+                  height: "30px",
+                  marginTop: "30px",
+                }}>
+                General
+              </Button>
+            </div>
+          </div>
+          <div className={styles.rightResource2}>right</div>
         </div>
         <div>
-          About <hr />
-        </div>
-        <div className={styles.about}>
-          <div className={styles.leftAbout}>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Suscipit, fugiat quaerat. Rem autem error eaque sunt ex,
-              consequatur illum adipisci magni, tenetur suscipit magnam odit qui
-              sint fugiat libero dolores.
-            </p>
-          </div>
-          <div></div>
-        </div>
-        <div className={styles.footer}>
-          <div className={styles.leftFooter}>
-            <h2>Contact</h2>
-            <div>
-              <ul className={styles.listFooter}>
-                <li>Follow us :</li>
-                <li className={styles.icon}>
-                  <FacebookIcon />
-                </li>
-                <li>
-                  <LinkedInIcon />
-                </li>
-                <li>
-                  <TwitterIcon />
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className={styles.rightFooter}>
-            <div>
-              <ul className={styles.rightFooter}>
-                <li>
-                  <h4>Mobile App</h4>{" "}
-                </li>
-
-                <li>
-                  {" "}
-                  <h4>Community</h4>
-                </li>
-                <li>
-                  <h4>Company</h4>
-                </li>
-              </ul>
-              <div className={styles.list}>
-                <ul>
-                  <li>ggggggg</li>
-                  <li>gggggggggggg</li>
-                  <li>dddddddddddd</li>
-
-                  <li>ggggggg</li>
-                  <li>gggggggggggg</li>
-                  <li>dddddddddddd</li>
-                </ul>
+          <div className={styles.resource3}>
+            <div className={styles.leftResource3}>left</div>
+            <div className={styles.rightResource3}>
+              <div>
+                <h1 style={{ color: "rgb(29, 70, 69)" }}>Grade 9</h1>
+              </div>
+              <p style={{ marginTop: "40px", fontSize: "32px" }}>
+                This platform is best suited for garde 9. Plenty of exercise for
+                clean description can help you achieve your goal.
+              </p>
+              <div>
+                <Button
+                  variant="contained"
+                  style={{
+                    marginLeft: "2rem",
+                    height: "30px",
+                    marginTop: "30px",
+                    width: "160px",
+                  }}>
+                  Take Exercise
+                </Button>
+                <Button
+                  variant="contained"
+                  style={{
+                    marginLeft: "2rem",
+                    height: "30px",
+                    marginTop: "30px",
+                    width: "160px",
+                  }}>
+                  Mock Exercise
+                </Button>
+                <Button
+                  variant="contained"
+                  style={{
+                    marginLeft: "2rem",
+                    height: "30px",
+                    marginTop: "30px",
+                    width: "160px",
+                  }}>
+                  Entrance Exam
+                </Button>
+                <Button
+                  variant="contained"
+                  color="success"
+                  style={{
+                    marginLeft: "2rem",
+                    height: "30px",
+                    marginTop: "30px",
+                    width: "160px",
+                  }}>
+                  Exit Exam
+                </Button>
               </div>
             </div>
+          </div>
+          <div className={styles.aboutBody}>
+            <p className={styles.aboutTxt}>About</p>
+            <div className={styles.aboutLine}></div>
+            <p style={{ fontSize: "24px", marginTop: "20px" }}>
+              We are Warriors, the first ever Ethiopia and East African exam
+              archive for primary and secondary students.
+            </p>
+          </div>
+          <div className={styles.lastTxt}>
+            <h3>How we can help you become better ?</h3>
+            <p style={{ marginTop: "20px" }}>
+              We are web based exam deliver and assistance company on youngsters
+              and energetic generation. we are high insight ful where an
+              organized platform can boost a learning process through
+              technology. our platform is free forever and enjoy your learning
+              process with us.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className={styles.footer}>
+        <p className={styles.contact}>Contact</p>
+        <div className={styles.contactLine}></div>
+        <div className={styles.footerItem}>
+          <div className={styles.socialMedia}>
             <div>
-              <Button>Login</Button>
+              <FacebookIcon sx={{ color: "blue", marginTop: "20px" }} />
+            </div>
+            <div>
+              <LinkedInIcon sx={{ color: "blue", marginTop: "20px" }} />
+            </div>
+            <div>
+              <TwitterIcon sx={{ color: "blue", marginTop: "20px" }} />
             </div>
           </div>
+          <div>hh</div>
         </div>
       </div>
     </div>

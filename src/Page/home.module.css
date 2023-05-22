@@ -40,7 +40,7 @@
   width: 100%;
 }
 .leftHomeBody {
-  margin-left: 50px;
+  margin-left: 120px;
   margin-top: 20vh;
 }
 .middleLine {
@@ -105,21 +105,114 @@
   margin-left: 40px;
   margin-top: 10px;
 }
+.resourceTxt {
+  font-size: 36px;
+  margin-left: 120px;
+  color: rgb(29, 70, 69);
+}
 .resource {
   display: flex;
   justify-content: space-between;
 }
-.about {
+.resource1 {
   display: flex;
   justify-content: space-between;
+  margin-top: 50px;
+  margin-left: 120px;
+  margin-right: 120px;
 }
-
-.aboutLeft {
+.rightResource1 {
   width: 50%;
+}
+.leftResource1 {
+  width: 50%;
+}
+.resource2 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  margin-left: 120px;
+  margin-right: 120px;
+}
+.rightResource2 {
+  width: 50%;
+}
+.leftResource2 {
+  width: 50%;
+}
+.resource3 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  margin-left: 120px;
+  margin-right: 120px;
+}
+.rightResource3 {
+  width: 50%;
+}
+.leftResource3 {
+  width: 50%;
+}
+.resourceLine {
+  width: 130px;
+  height: 2px;
+  background-color: rgb(212, 210, 227);
+  margin-left: 120px;
+}
+.resourceLeft {
+  margin-left: 120px;
+  width: 50%;
+  margin-top: 60px;
+}
+.resourceRight {
+  margin-right: 60px;
+  margin-top: 60px;
+  width: 50%;
+}
+.aboutBody {
+  margin-left: 120px;
+  width: 50%;
+}
+.aboutTxt {
+  font-size: 36px;
+  color: rgb(29, 70, 69);
+  margin-top: 100px;
+}
+.aboutLine {
+  width: 96px;
+  height: 3px;
+  background-color: rgb(212, 210, 227);
+}
+.lastTxt {
+  margin-left: 120px;
+  margin-top: 80px;
+  color: rgb(29, 70, 69);
+  width: 50%;
+  height: 300px;
 }
 .footer {
   background-color: rgb(255, 255, 255);
-  height: 50vh;
+  height: 100%;
+  margin-left: 120px;
+  margin-right: 20px;
+}
+.contact {
+  font-size: 36px;
+  color: rgb(29, 70, 69);
+  margin-top: 100px;
+  font-weight: bold;
+}
+.contactLine {
+  width: 110px;
+  height: 3px;
+  margin-left: 6px;
+  background-color: rgb(212, 210, 227);
+}
+.socialMedia {
+  display: flex;
+  gap: 2rem;
+}
+.footerItem {
   display: flex;
 }
 .listFooter {
