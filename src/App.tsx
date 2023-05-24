@@ -12,6 +12,7 @@ import Registartion from "./Page/Registartion/Registartion";
 import OtpVerficationCode from "./Page/Otp/OtpVerficationCode";
 import CreateNewPassword from "./Page/CreateNewPassword/CreateNewPassword";
 import ResetPassword from "./Page/ResetPassword/ResetPassword";
+import ExerciseCard from "./Page/ExerciseCard/ExerciseCard";
 
 function App() {
   const router = createBrowserRouter([
@@ -30,6 +31,7 @@ function App() {
     { path: "reset", element: <ResetPassword /> },
     { path: "otp", element: <OtpVerficationCode /> },
     { path: "new", element: <CreateNewPassword /> },
+    { path: "exercise-card", element: <ExerciseCard /> },
   ]);
   return (
     <div>

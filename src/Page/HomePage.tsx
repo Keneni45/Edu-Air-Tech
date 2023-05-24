@@ -269,22 +269,56 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-      <div className={styles.footer}>
-        <p className={styles.contact}>Contact</p>
-        <div className={styles.contactLine}></div>
-        <div className={styles.footerItem}>
-          <div className={styles.socialMedia}>
-            <div>
-              <FacebookIcon sx={{ color: "blue", marginTop: "20px" }} />
+      <div className={styles.footerContent}>
+        <div className={styles.footer}>
+          <p className={styles.contact}>Contact</p>
+          <div className={styles.contactLine}></div>
+          <div className={styles.footerItem}>
+            <div className={styles.socialMedia}>
+              <div>
+                <FacebookIcon sx={{ color: "blue", marginTop: "20px" }} />
+              </div>
+              <div>
+                <LinkedInIcon sx={{ color: "blue", marginTop: "20px" }} />
+              </div>
+              <div>
+                <TwitterIcon sx={{ color: "blue", marginTop: "20px" }} />
+              </div>
             </div>
-            <div>
-              <LinkedInIcon sx={{ color: "blue", marginTop: "20px" }} />
-            </div>
-            <div>
-              <TwitterIcon sx={{ color: "blue", marginTop: "20px" }} />
+            <div>2022 ggggg</div>
+
+            <div className={styles.txtFooter}>
+              <div>
+                <p className={styles.title}>comunity</p>
+                <ul className={styles.listItem}>
+                  <li>hh</li>
+                  <li>hhh</li>
+                  <li>hh</li>
+                  <li>hhh</li>
+                </ul>
+              </div>
+
+              <div>
+                <p>comunity</p>
+                <ul className={styles.listItem}>
+                  <li>hh</li>
+                  <li>hhh</li>
+                  <li>hh</li>
+                  <li>hhh</li>
+                </ul>
+              </div>
+
+              <div>
+                <p>comunity</p>
+                <ul className={styles.listItem}>
+                  <li>hh</li>
+                  <li>hhh</li>
+                  <li>hh</li>
+                  <li>hhh</li>
+                </ul>
+              </div>
             </div>
           </div>
-          <div>hh</div>
         </div>
       </div>
     </div>

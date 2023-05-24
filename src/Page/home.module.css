@@ -199,7 +199,7 @@
 .contact {
   font-size: 36px;
   color: rgb(29, 70, 69);
-  margin-top: 100px;
+  margin-top: 50px;
   font-weight: bold;
 }
 .contactLine {
@@ -211,6 +211,26 @@
 .socialMedia {
   display: flex;
   gap: 2rem;
+}
+.txtFooter {
+  display: flex;
+  gap: 3rem;
+  margin-left: 400px;
+  /* margin-top: 20px; */
+}
+.listItem {
+  list-style: none;
+}
+.title {
+  margin-left: 20px;
+}
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+}
+.footerTitle {
+  /* display: flex; */
+  gap: 3rem;
 }
 .footerItem {
   display: flex;

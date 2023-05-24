@@ -12,10 +12,10 @@ export async function login(phone: string, password: string) {
     return error as AxiosError;
   }
 }
-export async function signup(form: any, image: any) {
+export async function signup(form: any) {
   try {
     let formData = new FormData();
-    formData.append("image", image);
+    // formData.append("image", image);
     formData.append("username", form.username);
     formData.append("email", form.email);
     formData.append("phone", form.phone);
