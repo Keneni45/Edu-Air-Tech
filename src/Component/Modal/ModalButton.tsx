@@ -17,7 +17,7 @@ export default function ModalButton() {
   return (
     <>
       <div style={buttonStyle}>
-        <button onClick={() => setIsOpen(true)}>Login</button>
+        <button onClick={() => setIsOpen(true)}></button>
         <Modal open={isOpen} onClose={() => setIsOpen(false)}>
           Login
         </Modal>

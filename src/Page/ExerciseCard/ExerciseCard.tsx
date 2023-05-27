@@ -90,9 +90,13 @@ export default function ExerciseCard() {
                       {items.name}
                     </Typography>
                     <Typography>
-                      <Button variant="contained">Exercise</Button>
+                      <Button
+                        variant="contained"
+                        onClick={() => setIsOpen(true)}>
+                        Exercise
+                      </Button>
                       <Modal open={isOpen} onClose={() => setIsOpen(false)}>
-                        <button>click me</button>
+                        Login
                       </Modal>
                     </Typography>
                   </Card>

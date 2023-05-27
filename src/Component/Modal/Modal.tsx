@@ -14,7 +14,7 @@ const modalStyle: any = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  backgroundColor: "rgb(255, 18, 198)",
+  backgroundColor: "rgb(255, 255, 198)",
   padding: "50px",
   zIndex: 1000,
 };
@@ -24,7 +24,7 @@ const overLay: any = {
   right: "0",
   top: "0",
   bottom: "0",
-  backgroundColor: "rgb(0,0,0,0.7)",
+  backgroundColor: "rgb(0,0,0,0.9)",
 };
 const success: any = {
   position: "fixed",
@@ -44,22 +44,39 @@ const body: any = {
 };
 const closeButton: any = { position: "relative", top: "-40px", left: "100%" };
 export default function Modal({ children, open, onClose }: modalProps) {
+  const portalElement = document.getElementById("portal");
   if (!open) return null;
+
   return ReactDom.createPortal(
     <>
-      {/* <div style={overLay} />
-      <div style={modalStyle}> */}
-      {/* <button onClick={onClose} style={closeButton}>
+      <div style={overLay} />
+      <div style={modalStyle}>
+        <button onClick={onClose} style={closeButton}>
           <CloseSharpIcon />
-        </button> */}
-      <div>
-        <div style={success}>
-          <div style={body}>{children}</div>
-          <div></div>
-        </div>
+        </button>
       </div>
     </>,
 
     document.getElementById("portal")
   );
 }
+// export default function Modal({ children, open, onClose }: modalProps) {
+//   const portalElement = document.getElementById("portal");
+
+//   if (portalElement) {
+//     return ReactDom.createPortal(
+//       <>
+//         <div style={overLay} />
+//         <div style={modalStyle}>
+//           <button onClick={onClose} style={closeButton}>
+//             <CloseSharpIcon />
+//           </button>
+//           {children}
+//         </div>
+//       </>,
+//       portalElement
+//     );
+//   } else {
+//     return null;
+//   }
+// }
