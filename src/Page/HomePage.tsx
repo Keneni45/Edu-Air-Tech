@@ -124,14 +124,16 @@ export default function HomePage() {
               clean description can help you achieve your goal.
             </p>
             <div>
-              <Button
-                variant="contained"
-                style={{
-                  height: "30px",
-                  marginTop: "30px",
-                }}>
-                Exercise
-              </Button>
+              <Link to="exercise-card">
+                <Button
+                  variant="contained"
+                  style={{
+                    height: "30px",
+                    marginTop: "30px",
+                  }}>
+                  Exercise
+                </Button>
+              </Link>
               <Button
                 variant="contained"
                 style={{

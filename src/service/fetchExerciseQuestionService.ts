@@ -1,6 +1,9 @@
 import axios from "../api/axios";
 
-export async function fetchExerciseQuestionService() {
-  const exerciseQuestions = axios.get("");
+export async function fetchExerciseQuestionService(
+  grade: string,
+  course: string
+) {
+  const exerciseQuestions = axios.get(`${grade}`);
   return exerciseQuestions;
 }
