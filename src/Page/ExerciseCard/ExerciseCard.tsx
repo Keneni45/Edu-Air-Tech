@@ -15,6 +15,7 @@ import Modal from "../../Component/Modal/Modal";
 export default function ExerciseCard() {
   const [isOpen, setIsOpen] = useState(false);
   const [course, setCourse] = useState<Exercise[]>([]);
+  const [isFetched, setIsFetched] = useState(true);
   const [selectedCourse, setSelectedCourse] = useState<string>("");
 
   function handleSelectedCourse(e: any) {
@@ -22,12 +23,14 @@ export default function ExerciseCard() {
   }
 
   useEffect(() => {
-    async function fetchCourse() {
-      const courseFromServer: any = await fetchExerciseCourses();
-      setCourse(courseFromServer);
+    if (isFetched) {
+      async function fetchCourse() {
+        const courseFromServer: any = await fetchExerciseCourses();
+        setCourse(courseFromServer);
+      }
+      fetchCourse();
     }
-    fetchCourse();
-  }, []);
+  }, [isFetched]);
 
   return (
     <div>

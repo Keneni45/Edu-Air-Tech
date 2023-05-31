@@ -4,4 +4,8 @@ export type Exercise = {
   name: string;
   grade: string;
   course: string;
+  chapter: string;
+  questions: string;
+  exerciseNumber: string;
+  exercise: string;
 };

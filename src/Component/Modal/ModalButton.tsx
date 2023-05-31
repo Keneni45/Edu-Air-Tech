@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Modal from "./Modal";
+import { SelectOption } from "../SelectDropdown";
 
 const buttonStyle: any = {
   position: "relative",
@@ -14,6 +15,7 @@ const buttonStyle: any = {
 
 export default function ModalButton() {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
       <div style={buttonStyle}>

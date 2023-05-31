@@ -13,6 +13,8 @@ import OtpVerficationCode from "./Page/Otp/OtpVerficationCode";
 import CreateNewPassword from "./Page/CreateNewPassword/CreateNewPassword";
 import ResetPassword from "./Page/ResetPassword/ResetPassword";
 import ExerciseCard from "./Page/ExerciseCard/ExerciseCard";
+import UEEQuestionDisplay from "./Page/UEE/UEEQuestionDisplay";
+import GeneralQuestionPage from "./Page/GeneralQuestion/GeneralQuestionPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -32,6 +34,8 @@ function App() {
     { path: "otp", element: <OtpVerficationCode /> },
     { path: "new", element: <CreateNewPassword /> },
     { path: "exercise-card", element: <ExerciseCard /> },
+    { path: "enter", element: <UEEQuestionDisplay /> },
+    { path: "general", element: <GeneralQuestionPage /> },
   ]);
   return (
     <div>
