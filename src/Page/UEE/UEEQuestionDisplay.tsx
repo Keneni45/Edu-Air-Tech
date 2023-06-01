@@ -8,6 +8,20 @@ import {
   fetchEntranceQuestion,
 } from "../../service/fetchEntranceQuestionService";
 
+import parse, {
+  HTMLReactParserOptions,
+  Element,
+  domToReact,
+} from "html-react-parser";
+
+const options: HTMLReactParserOptions = {
+  replace: (domNode) => {
+    if (domNode instanceof Element && domNode.attribs) {
+      return <span>{domToReact(domNode.children)}</span>;
+    }
+  },
+};
+
 export default function UEEQuestionDisplay() {
   const [selectedCourse, setSelectedCourse] = useState("");
   const [yearOptions, setYearOptions] = useState<SelectOption[]>([]);
