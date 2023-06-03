@@ -1,4 +1,4 @@
-import ProgressBar from "../Component/ProgressBar";
+//import ProgressBar from "../Component/ProgressBar";
 import styles from "./question.module.css";
 export default function QuestionPage() {
   return (
@@ -10,9 +10,7 @@ export default function QuestionPage() {
         <div className={styles.studentName}>hhhh</div>
         <div className={styles.timer}>dddd</div>
       </div>
-      <div>
-        <ProgressBar />
-      </div>
+      <div></div>
       <div>hhh</div>
     </div>
   );

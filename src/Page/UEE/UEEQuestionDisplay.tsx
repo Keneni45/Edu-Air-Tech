@@ -13,6 +13,11 @@ import parse, {
   Element,
   domToReact,
 } from "html-react-parser";
+import {
+  fetchExerciseGrade,
+  fetchQuestionCourses,
+  fetchQuestionCoursesSelectionOption,
+} from "../../service/fetchCourseService";
 
 const options: HTMLReactParserOptions = {
   replace: (domNode) => {
@@ -23,7 +28,7 @@ const options: HTMLReactParserOptions = {
 };
 
 export default function UEEQuestionDisplay() {
-  const [selectedCourse, setSelectedCourse] = useState("");
+  const [selectedCourse, setSelectedCourse] = useState<string>("");
   const [yearOptions, setYearOptions] = useState<SelectOption[]>([]);
   const [courseOptions, setCourseOptions] = useState<SelectOption[]>([]);
   const [questions, setQuestions] = useState<Question[]>([]);
@@ -31,31 +36,17 @@ export default function UEEQuestionDisplay() {
   const isInitialMount = useRef(true);
 
   const getCourses = async () => {
-    let examCats = await fetchExamCategories();
-    let UEECourses = examCats[0].courses;
-    let crs: SelectOption[] = [];
-    for (const course of UEECourses) {
-      crs.push({ label: course.name, value: course._id });
-    }
-    setCourseOptions((p) => crs);
-    setSelectedCourse((p) => UEECourses[0]._id);
-    await getYears(UEECourses[0]._id);
+    const courseFromServer: any = await fetchQuestionCoursesSelectionOption();
+    setCourseOptions(courseFromServer);
+    setSelectedCourse(courseFromServer[0]._id);
+    await getYears(courseFromServer[0]._id);
     await getQuestions({ course: selectedCourse, year: selectedYear, page: 1 });
   };
-
   async function getYears(courseId: string | number) {
     let yearsFromServer: SelectOption[] = await fetchAvailableYears(courseId);
-    setYearOptions((p) => yearsFromServer);
-    setSelectedYear((p) => yearsFromServer[0].value);
+    setYearOptions(yearsFromServer);
+    setSelectedYear(yearsFromServer[0].value || 2010);
   }
-  useEffect(() => {
-    if (isInitialMount.current) {
-      isInitialMount.current = false;
-    } else {
-      getYears(selectedCourse);
-    }
-  }, [selectedCourse]);
-
   useEffect(() => {
     getCourses();
   }, []);
@@ -64,9 +55,22 @@ export default function UEEQuestionDisplay() {
     if (isInitialMount.current) {
       isInitialMount.current = false;
     } else {
+      console.log("called on update only");
+      getYears(selectedCourse);
+      //   getYears(selectedCourse);
+    }
+  }, [selectedCourse]);
+  useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+    } else {
       getQuestions({ course: selectedCourse, year: selectedYear, page: 1 });
     }
-  }, [selectedYear, selectedCourse]);
+  }, [selectedYear]);
+
+  useEffect(() => {
+    getCourses();
+  }, []);
 
   const getQuestions = async ({
     course,
@@ -78,9 +82,9 @@ export default function UEEQuestionDisplay() {
     page: number;
   }) => {
     const { count, questions } = await fetchEntranceQuestion({
-      course,
-      year,
-      page: 1,
+      course: selectedCourse,
+      year: selectedYear,
+      page,
     });
     setQuestions(questions);
   };
@@ -96,12 +100,12 @@ export default function UEEQuestionDisplay() {
       <div>
         <div className={styles.ueeHeader}>
           <SelectDropdown
-            title=""
+            title="course"
             items={courseOptions}
             handleSelect={handleSelectedCourse}
           />
           <SelectDropdown
-            title=""
+            title="year"
             items={yearOptions}
             handleSelect={handleSelectedYear}
           />

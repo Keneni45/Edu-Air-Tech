@@ -8,7 +8,7 @@ import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import { Button } from "@mui/material";
 
-import { fetchExerciseCourses } from "../../service/fetchCourseService";
+import { fetchQuestionCourses } from "../../service/fetchCourseService";
 import { Exercise } from "../../models/exercises.model";
 import Modal from "../../Component/Modal/Modal";
 
@@ -25,7 +25,7 @@ export default function ExerciseCard() {
   useEffect(() => {
     if (isFetched) {
       async function fetchCourse() {
-        const courseFromServer: any = await fetchExerciseCourses();
+        const courseFromServer: any = await fetchQuestionCourses();
         setCourse(courseFromServer);
       }
       fetchCourse();

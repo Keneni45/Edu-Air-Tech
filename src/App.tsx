@@ -13,8 +13,9 @@ import OtpVerficationCode from "./Page/Otp/OtpVerficationCode";
 import CreateNewPassword from "./Page/CreateNewPassword/CreateNewPassword";
 import ResetPassword from "./Page/ResetPassword/ResetPassword";
 import ExerciseCard from "./Page/ExerciseCard/ExerciseCard";
-import UEEQuestionDisplay from "./Page/UEE/UEEQuestionDisplay";
+//import UEEQuestionDisplay from "./Page/UEE/UEEQuestionDisplay";
 import GeneralQuestionPage from "./Page/GeneralQuestion/GeneralQuestionPage";
+import UEEQuestionDisplay from "./Page/UEE/UEEQuestionDisplay";
 
 function App() {
   const router = createBrowserRouter([
@@ -22,18 +23,18 @@ function App() {
       path: "/",
       element: <HomePage />,
     },
-    { path: "modal", element: <ModalButton /> },
-    { path: "login", element: <Login /> },
-    { path: "createpassword", element: <CreateNewPassword /> },
-    { path: "exercise", element: <ExerciseQuestionPage /> },
+    // { path: "modal", element: <ModalButton /> },
+    // { path: "login", element: <Login /> },
+    // { path: "createpassword", element: <CreateNewPassword /> },
+    // { path: "exercise", element: <ExerciseQuestionPage /> },
     // { path: "card", element: <Exam /> },
-    { path: "challenge", element: <Challenge /> },
-    { path: "card", element: <Card /> },
-    { path: "register", element: <Registartion /> },
-    { path: "reset", element: <ResetPassword /> },
-    { path: "otp", element: <OtpVerficationCode /> },
-    { path: "new", element: <CreateNewPassword /> },
-    { path: "exercise-card", element: <ExerciseCard /> },
+    // { path: "challenge", element: <Challenge /> },
+    // { path: "card", element: <Card /> },
+    // { path: "register", element: <Registartion /> },
+    // { path: "reset", element: <ResetPassword /> },
+    // { path: "otp", element: <OtpVerficationCode /> },
+    // { path: "new", element: <CreateNewPassword /> },
+    // { path: "exercise-card", element: <ExerciseCard /> },
     { path: "enter", element: <UEEQuestionDisplay /> },
     { path: "general", element: <GeneralQuestionPage /> },
   ]);
