@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import SelectDropdown, { SelectOption } from "../../Component/SelectDropdown";
 import { fetchExamCategories } from "../../service/fetchCourseService";
-import { getAvailableExerciseFromServer } from "../../service/fetchExerciseQuestionService";
+import { getAvailableExerciseNumberFromServer } from "../../service/fetchExerciseQuestionService";
 import { gradeOptions } from "../../constant";
+import { Question } from "../../models/questions.model";
 
 export default function ExerciseQuestionPage() {
   const [selectedCourse, setSelectedCourse] = useState("");
   const [selectedExercise, setSelectedExercise] = useState("");
   const [courses, setCourses] = useState<SelectOption[]>([]);
+  const [questins, setQuestions] = useState<Question[]>([]);
   const [chapter, setChapter] = useState<SelectOption[]>([]);
   const [gradeSelect, setGradeSelected] = useState("");
   const [exerciseNumber, setExerciseNumber] = useState<SelectOption[]>([]);
@@ -27,7 +29,7 @@ export default function ExerciseQuestionPage() {
     fetchInitialFromServer();
   }, []);
   const fetchExercise = async (courseId: string, grade: number) => {
-    const exercise = (await getAvailableExerciseFromServer(
+    const exercise = (await getAvailableExerciseNumberFromServer(
       grade,
       courseId
     )) as SelectOption[];
@@ -74,6 +76,7 @@ export default function ExerciseQuestionPage() {
           items={chapter}
         />
       </div>
+      <div>{}</div>
     </div>
   );
 }

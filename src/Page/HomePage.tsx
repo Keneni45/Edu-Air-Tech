@@ -106,7 +106,7 @@ export default function HomePage() {
               clean description can help you achieve your goal.
             </p>
             <div>
-              <Link to="exercise-card">
+              <Link to="exercise-card" state={{ grade: "", type: "" }}>
                 <Button
                   variant="contained"
                   style={{

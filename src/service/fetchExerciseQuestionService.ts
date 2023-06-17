@@ -12,10 +12,10 @@ export async function fetchExerciseQuestionFromServer(
 ) {
   let raw = await axios.get(`/exercise-questions/${exerciseId}`);
   let data = raw.data;
-  return data as Exercise[];
+  return data as GetQuestionDto;
 }
 
-export async function getAvailableExerciseFromServer(
+export async function getAvailableExerciseNumberFromServer(
   grade: number,
   courseId: string
 ) {
