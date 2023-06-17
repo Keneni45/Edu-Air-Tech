@@ -4,34 +4,31 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ArrowForwardSharpIcon from "@mui/icons-material/ArrowForwardSharp";
-//import { fetchGrade } from "../service/fetchExerciseQuestionService";
+
 interface Item {
   id: number;
   name: string;
 }
 export default function HomePage() {
+  const [typeExercise, setTypeExercise] = useState("");
+  const [gradeSelect, setGradeSelected] = useState([
+    {
+      grade_9: "Grade 9",
+      grade_10: "Grade 10",
+      grade_11: "Grade 11",
+      grade_12: "Grade 12",
+    },
+  ]);
   const [isOpen, setIsOpen] = useState(false);
 
-  const [gradeSelect, setGradeSelected] = useState("");
-  const data = [
-    { id: 1, name: "Grade 9" },
-    { id: 2, name: "Grade 10" },
-    { id: 3, name: "Grade 11" },
-    { id: 4, name: "Grade 12" },
-  ];
-  // useEffect(() => {
-  //   async function fetchAvailableGradeFromServer() {
-  //     const data = await fetchGrade();
-  //     setGradeOptions(data);
-  //   }
-  //   fetchAvailableGradeFromServer();
-  // }, [gradeSelect]);
-
-  function handleSelectGrade(e: any) {
-    setGradeSelected(e.target.value);
-  }
+  // function handleSelectGrade(e: any) {
+  //   setGradeSelected(e.target.value);
+  // }
+  // function handleTypeExecise(e: any) {
+  //   setTypeExercise(e.target.value);
+  // }
   return (
     <div className={styles.home}>
       <div className={styles.homeNavbar}>
@@ -62,6 +59,7 @@ export default function HomePage() {
           </Link>
         </ul>
       </div>
+
       <div className={styles.all}>
         <div className={styles.homeBody}>
           <div className={styles.leftHomeBody}>
@@ -99,14 +97,20 @@ export default function HomePage() {
         <div className={styles.resource}>
           <div className={styles.resourceLeft}>
             <div>
-              <h1 style={{ color: "rgb(29, 70, 69)" }}>Grade 9</h1>
+              <h1 style={{ color: "rgb(29, 70, 69)" }}>
+                {gradeSelect.map((grade) => (
+                  <div key={grade.grade_9}>{grade.grade_9}</div>
+                ))}
+              </h1>
             </div>
             <p style={{ marginTop: "40px", fontSize: "32px" }}>
               This platform is best suited for garde 9. Plenty of exercise for
               clean description can help you achieve your goal.
             </p>
             <div>
-              <Link to="exercise-card" state={{ grade: "", type: "" }}>
+              <Link
+                to="exercise-card"
+                state={{ grade: "selectGrade", type: "typeExercise" }}>
                 <Button
                   variant="contained"
                   style={{
@@ -146,14 +150,20 @@ export default function HomePage() {
           <div className={styles.leftResource1}>left</div>
           <div className={styles.rightResource1}>
             <div>
-              <h1 style={{ color: "rgb(29, 70, 69)" }}>Grade 9</h1>
+              <h1 style={{ color: "rgb(29, 70, 69)" }}>
+                {gradeSelect.map((grade) => (
+                  <div key={grade.grade_9}>{grade.grade_10}</div>
+                ))}
+              </h1>
             </div>
             <p style={{ marginTop: "40px", fontSize: "32px" }}>
               This platform is best suited for garde 9. Plenty of exercise for
               clean description can help you achieve your goal.
             </p>
             <div>
-              <Link to="exercise-card">
+              <Link
+                to="exercise-card"
+                state={{ grade: "selectGrade", type: "typeExercise" }}>
                 <Button
                   variant="contained"
                   style={{
@@ -191,14 +201,20 @@ export default function HomePage() {
         <div className={styles.resource2}>
           <div className={styles.leftResource2}>
             <div>
-              <h1 style={{ color: "rgb(29, 70, 69)" }}>Grade 9</h1>
+              <h1 style={{ color: "rgb(29, 70, 69)" }}>
+                {gradeSelect.map((grade) => (
+                  <div key={grade.grade_9}>{grade.grade_11}</div>
+                ))}
+              </h1>
             </div>
             <p style={{ marginTop: "40px", fontSize: "32px" }}>
               This platform is best suited for garde 9. Plenty of exercise for
               clean description can help you achieve your goal.
             </p>
             <div>
-              <Link to="exercise-card">
+              <Link
+                to="exercise-card"
+                state={{ grade: "selectGrade", type: "typeExercise" }}>
                 <Button
                   variant="contained"
                   style={{
@@ -239,14 +255,20 @@ export default function HomePage() {
             <div className={styles.leftResource3}>left</div>
             <div className={styles.rightResource3}>
               <div>
-                <h1 style={{ color: "rgb(29, 70, 69)" }}>Grade 9</h1>
+                <h1 style={{ color: "rgb(29, 70, 69)" }}>
+                  {gradeSelect.map((grade) => (
+                    <div key={grade.grade_9}>{grade.grade_12}</div>
+                  ))}
+                </h1>
               </div>
               <p style={{ marginTop: "40px", fontSize: "32px" }}>
                 This platform is best suited for garde 9. Plenty of exercise for
                 clean description can help you achieve your goal.
               </p>
               <div>
-                <Link to="exercise-card">
+                <Link
+                  to="exercise-card"
+                  state={{ grade: "selectGrade", type: "typeExercise" }}>
                   <Button
                     variant="contained"
                     style={{

@@ -2,8 +2,8 @@ import { SelectOption } from "../Component/SelectDropdown";
 import axios from "../api/axios";
 import { ExamCategory } from "../models/examCatagory.model";
 //`/courses/get/all/`
-export async function fetchQuestionCourses(gradeId: string) {
-  const response = await axios.get(`courses/get/all ${gradeId}`);
+export async function fetchExerciseCourses() {
+  const response = await axios.get(`courses/get/all`);
   let course = response.data as { _id: string; name: string }[];
   return course;
 }
