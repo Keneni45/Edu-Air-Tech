@@ -1,7 +1,7 @@
 import React from "react";
 export type SelectOption = {
-  label: string | number;
-  value: string | number;
+  label: string;
+  value: string;
 };
 type DropdownProps = {
   title: string;

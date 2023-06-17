@@ -1,13 +1,19 @@
 import { SelectOption } from "../Component/SelectDropdown";
 import axios from "../api/axios";
-
-export async function fetchQuestionCourses() {
-  const response = await axios.get(`/courses/get/all`);
+import { ExamCategory } from "../models/examCatagory.model";
+//`/courses/get/all/`
+export async function fetchQuestionCourses(gradeId: string) {
+  const response = await axios.get(`courses/get/all ${gradeId}`);
   let course = response.data as { _id: string; name: string }[];
   return course;
 }
+export async function fetchExamCategories() {
+  let raw = await axios.get(`/exam-categories-with-courses`);
+  let data = raw.data;
+  return data as ExamCategory[];
+}
 export async function fetchExerciseGrade() {
-  const grade = await axios.get(`/grade/get/all`);
+  const grade = await axios.get(`exercise/grade/get/all`);
   const data = grade.data as { _id: string; name: string }[];
   return data.map((g) => ({ label: g.name, value: g._id })) as SelectOption[];
 }

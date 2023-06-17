@@ -16,6 +16,9 @@ import ExerciseCard from "./Page/ExerciseCard/ExerciseCard";
 //import UEEQuestionDisplay from "./Page/UEE/UEEQuestionDisplay";
 import GeneralQuestionPage from "./Page/GeneralQuestion/GeneralQuestionPage";
 import UEEQuestionDisplay from "./Page/UEE/UEEQuestionDisplay";
+import StartExamPage from "./Page/StartExamPage/StartExamPage";
+import PracticeQuestionPage from "./Page/PracticeQuestion/PracticeQuestionPage";
+import ExitExamPage from "./Page/ExitExam/ExitExamPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -24,19 +27,23 @@ function App() {
       element: <HomePage />,
     },
     // { path: "modal", element: <ModalButton /> },
-    // { path: "login", element: <Login /> },
+    { path: "login", element: <Login /> },
     // { path: "createpassword", element: <CreateNewPassword /> },
     // { path: "exercise", element: <ExerciseQuestionPage /> },
     // { path: "card", element: <Exam /> },
     // { path: "challenge", element: <Challenge /> },
     // { path: "card", element: <Card /> },
-    // { path: "register", element: <Registartion /> },
+    { path: "register", element: <Registartion /> },
     // { path: "reset", element: <ResetPassword /> },
     // { path: "otp", element: <OtpVerficationCode /> },
     // { path: "new", element: <CreateNewPassword /> },
-    // { path: "exercise-card", element: <ExerciseCard /> },
-    { path: "enter", element: <UEEQuestionDisplay /> },
+    { path: "exercise-card", element: <ExerciseCard /> },
+    { path: "entrance", element: <UEEQuestionDisplay /> },
     { path: "general", element: <GeneralQuestionPage /> },
+    { path: "exercise", element: <ExerciseQuestionPage /> },
+    { path: "start-exam", element: <StartExamPage /> },
+    { path: "practice", element: <PracticeQuestionPage /> },
+    { path: "exit", element: <ExitExamPage /> },
   ]);
   return (
     <div>

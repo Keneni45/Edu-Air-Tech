@@ -20,24 +20,23 @@ export async function fetchEntranceQuestion({
   page,
   subCategory,
 }: getQuestionsQuery) {
-  let req: any = {
+  let req = {
     course: course.toString(),
     year: parseInt(year.toString()),
     page: parseInt(page?.toString() || "1"),
   };
-  if (subCategory && subCategory !== "") req.subCategory = subCategory;
+  //if (subCategory && subCategory !== "") req.subCategory = subCategory;
 
-  let raw = await axios.post(`/questions`, req, {});
+  let raw = await axios.post(`/questions/for-admin`, req, {});
   let data = raw.data;
   return data as GetQuestionDto;
 }
 type yearDto = {
-  year: number;
+  year: number | string;
 };
 export async function fetchAvailableYears(courseId: number | string) {
   let raw = await axios.get(`/questions/courses/get-years/${courseId}`);
   let data = raw.data as yearDto[];
-  console.log(data[0]);
-
+  console.log(data);
   return data.map((d) => ({ label: d.year, value: d.year })) as SelectOption[];
 }

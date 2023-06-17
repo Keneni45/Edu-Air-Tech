@@ -2,22 +2,16 @@ import { useEffect, useRef, useState } from "react";
 import SelectDropdown, { SelectOption } from "../../Component/SelectDropdown";
 import { Question } from "../../models/questions.model";
 import styles from "./uee.module.css";
-import { fetchExamCategories } from "../../service/examCatagoryService";
 import {
   fetchAvailableYears,
   fetchEntranceQuestion,
 } from "../../service/fetchEntranceQuestionService";
-
 import parse, {
   HTMLReactParserOptions,
   Element,
   domToReact,
 } from "html-react-parser";
-import {
-  fetchExerciseGrade,
-  fetchQuestionCourses,
-  fetchQuestionCoursesSelectionOption,
-} from "../../service/fetchCourseService";
+import { fetchQuestionCoursesSelectionOption } from "../../service/fetchCourseService";
 
 const options: HTMLReactParserOptions = {
   replace: (domNode) => {
@@ -27,12 +21,19 @@ const options: HTMLReactParserOptions = {
   },
 };
 
+type optionType = "option_a" | "option_b" | "option_c" | "option_d";
+type getQuestionProp = {
+  course: string;
+  year: string | number;
+  page: number;
+};
 export default function UEEQuestionDisplay() {
   const [selectedCourse, setSelectedCourse] = useState<string>("");
   const [yearOptions, setYearOptions] = useState<SelectOption[]>([]);
   const [courseOptions, setCourseOptions] = useState<SelectOption[]>([]);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [selectedYear, setSelectedYear] = useState<string | number>("");
+  const [totalCount, setTotalCount] = useState<number>(0);
   const isInitialMount = useRef(true);
 
   const getCourses = async () => {
@@ -42,11 +43,13 @@ export default function UEEQuestionDisplay() {
     await getYears(courseFromServer[0]._id);
     await getQuestions({ course: selectedCourse, year: selectedYear, page: 1 });
   };
+
   async function getYears(courseId: string | number) {
     let yearsFromServer: SelectOption[] = await fetchAvailableYears(courseId);
-    setYearOptions(yearsFromServer);
-    setSelectedYear(yearsFromServer[0].value || 2010);
+    setYearOptions((p) => yearsFromServer);
+    setSelectedYear((p) => yearsFromServer[0].value || 2010);
   }
+
   useEffect(() => {
     getCourses();
   }, []);
@@ -57,7 +60,6 @@ export default function UEEQuestionDisplay() {
     } else {
       console.log("called on update only");
       getYears(selectedCourse);
-      //   getYears(selectedCourse);
     }
   }, [selectedCourse]);
   useEffect(() => {
@@ -68,49 +70,66 @@ export default function UEEQuestionDisplay() {
     }
   }, [selectedYear]);
 
-  useEffect(() => {
-    getCourses();
-  }, []);
-
   const getQuestions = async ({
-    course,
-    year,
+    course: selectedCourse,
+    year: selectedYear,
     page,
-  }: {
-    course: string;
-    year: string | number;
-    page: number;
-  }) => {
+  }: getQuestionProp) => {
     const { count, questions } = await fetchEntranceQuestion({
       course: selectedCourse,
       year: selectedYear,
       page,
     });
     setQuestions(questions);
+    setTotalCount(count);
   };
 
-  function handleSelectedYear(e: any) {
-    setSelectedYear(e.target.value);
-  }
-  function handleSelectedCourse(e: any) {
-    setSelectedCourse(e.target.value);
-  }
+  const onPageChange = async (page: number) => {
+    const { count, questions } = await fetchEntranceQuestion({
+      course: selectedCourse,
+      year: selectedYear,
+      page: page,
+    });
+    setQuestions(questions);
+    setTotalCount(count);
+  };
+
+  const handleSelectYear = (e: React.FormEvent<HTMLSelectElement>) => {
+    setSelectedYear((e.target as HTMLSelectElement).value);
+  };
+  const handleSelectCourse = (e: React.FormEvent<HTMLSelectElement>) => {
+    setSelectedCourse((e.target as HTMLSelectElement).value);
+    console.log("vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv" + selectedCourse);
+  };
+
   return (
     <div>
+      <div className={styles.ueeHeader}>
+        <SelectDropdown
+          title="course"
+          items={courseOptions}
+          handleSelect={handleSelectCourse}
+        />
+        <SelectDropdown
+          title="year"
+          items={yearOptions}
+          handleSelect={handleSelectYear}
+        />
+      </div>
+      <div className={styles.questionDirection}>
+        <p>
+          1.1:-<b>DIRECTION:-</b>Choose the best answer by clicking on the box{" "}
+          <hr />
+        </p>
+      </div>
       <div>
-        <div className={styles.ueeHeader}>
-          <SelectDropdown
-            title="course"
-            items={courseOptions}
-            handleSelect={handleSelectedCourse}
-          />
-          <SelectDropdown
-            title="year"
-            items={yearOptions}
-            handleSelect={handleSelectedYear}
-          />
-        </div>
-        <div>kkkkkkkkkkkkkkkkkkkkk</div>
+        {questions.length > 0 ? (
+          questions.map((question, index) => (
+            <div key={index}>{question.questionText}</div>
+          ))
+        ) : (
+          <p>Loading....</p>
+        )}
       </div>
     </div>
   );

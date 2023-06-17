@@ -21,36 +21,26 @@ type LoginModel = {
   phone: string;
   password: string;
 };
+
 export default function Login() {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
   const loginUser = async ({ phone, password }: LoginModel) => {
-    setLoading(true);
-
+    setSpinner(true);
     const user = await login(phone, password);
     if (user instanceof AxiosError) {
-      setLoading(false);
-      console.log("this message" + user.message);
-      if (user.response.status == 422) {
-        setMessage("incorrect phone or password please try again!");
+      setSpinner(false);
+      console.log("this is message " + user.message);
+      if (user.response?.status == 422) {
+        setMessage("incorrect phone or password please try again");
       } else setMessage("oops something went wrong please try again later");
-      {
-        setSpinner(false);
-        persistUser(user);
-        window.location.href = "/user-profile";
-        console.log(user);
-      }
+    } else {
+      setSpinner(false);
+      persistUser(user);
+      window.location.href = "/user-profile";
+      console.log(user);
     }
-  };
-  function handleChange(e: any) {
-    console.log(e.target.value);
-  }
-  const setSpinner = (active: boolean) => {
-    setLoading(active);
-  };
-  const setMessageText = (mes: string) => {
-    setMessage(mes);
   };
 
   const loginFormik = useFormik({
@@ -64,12 +54,18 @@ export default function Login() {
     },
     validationSchema: validationSchema,
     validateOnChange: true,
-
     onSubmit: (data) => {
       console.log(JSON.stringify(data, null, 2));
       loginUser(data);
     },
   });
+
+  const setSpinner = (active: boolean) => {
+    setLoading(active);
+  };
+  const setMessageText = (mes: string) => {
+    setMessage(mes);
+  };
 
   return (
     <LoadingOverlayWrapper

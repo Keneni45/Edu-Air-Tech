@@ -4,11 +4,34 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ArrowForwardSharpIcon from "@mui/icons-material/ArrowForwardSharp";
-
+//import { fetchGrade } from "../service/fetchExerciseQuestionService";
+interface Item {
+  id: number;
+  name: string;
+}
 export default function HomePage() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const [gradeSelect, setGradeSelected] = useState("");
+  const data = [
+    { id: 1, name: "Grade 9" },
+    { id: 2, name: "Grade 10" },
+    { id: 3, name: "Grade 11" },
+    { id: 4, name: "Grade 12" },
+  ];
+  // useEffect(() => {
+  //   async function fetchAvailableGradeFromServer() {
+  //     const data = await fetchGrade();
+  //     setGradeOptions(data);
+  //   }
+  //   fetchAvailableGradeFromServer();
+  // }, [gradeSelect]);
+
+  function handleSelectGrade(e: any) {
+    setGradeSelected(e.target.value);
+  }
   return (
     <div className={styles.home}>
       <div className={styles.homeNavbar}>
@@ -83,32 +106,38 @@ export default function HomePage() {
               clean description can help you achieve your goal.
             </p>
             <div>
-              <Button
-                variant="contained"
-                style={{
-                  height: "30px",
-                  marginTop: "30px",
-                }}>
-                Exercise
-              </Button>
-              <Button
-                variant="contained"
-                style={{
-                  marginLeft: "2rem",
-                  height: "30px",
-                  marginTop: "30px",
-                }}>
-                Practice
-              </Button>
-              <Button
-                variant="contained"
-                style={{
-                  marginLeft: "2rem",
-                  height: "30px",
-                  marginTop: "30px",
-                }}>
-                General
-              </Button>
+              <Link to="exercise-card">
+                <Button
+                  variant="contained"
+                  style={{
+                    height: "30px",
+                    marginTop: "30px",
+                  }}>
+                  Exercise
+                </Button>
+              </Link>
+              <Link to="/practice">
+                <Button
+                  variant="contained"
+                  style={{
+                    marginLeft: "2rem",
+                    height: "30px",
+                    marginTop: "30px",
+                  }}>
+                  Practice
+                </Button>
+              </Link>
+              <Link to="general">
+                <Button
+                  variant="contained"
+                  style={{
+                    marginLeft: "2rem",
+                    height: "30px",
+                    marginTop: "30px",
+                  }}>
+                  General
+                </Button>
+              </Link>
             </div>
           </div>
           <div className={styles.resourceRight}>image</div>
@@ -134,24 +163,28 @@ export default function HomePage() {
                   Exercise
                 </Button>
               </Link>
-              <Button
-                variant="contained"
-                style={{
-                  marginLeft: "2rem",
-                  height: "30px",
-                  marginTop: "30px",
-                }}>
-                Practice
-              </Button>
-              <Button
-                variant="contained"
-                style={{
-                  marginLeft: "2rem",
-                  height: "30px",
-                  marginTop: "30px",
-                }}>
-                General
-              </Button>
+              <Link to="/practice">
+                <Button
+                  variant="contained"
+                  style={{
+                    marginLeft: "2rem",
+                    height: "30px",
+                    marginTop: "30px",
+                  }}>
+                  Practice
+                </Button>
+              </Link>
+              <Link to="general">
+                <Button
+                  variant="contained"
+                  style={{
+                    marginLeft: "2rem",
+                    height: "30px",
+                    marginTop: "30px",
+                  }}>
+                  General
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -165,32 +198,38 @@ export default function HomePage() {
               clean description can help you achieve your goal.
             </p>
             <div>
-              <Button
-                variant="contained"
-                style={{
-                  height: "30px",
-                  marginTop: "30px",
-                }}>
-                Exercise
-              </Button>
-              <Button
-                variant="contained"
-                style={{
-                  marginLeft: "2rem",
-                  height: "30px",
-                  marginTop: "30px",
-                }}>
-                Practice
-              </Button>
-              <Button
-                variant="contained"
-                style={{
-                  marginLeft: "2rem",
-                  height: "30px",
-                  marginTop: "30px",
-                }}>
-                General
-              </Button>
+              <Link to="exercise-card">
+                <Button
+                  variant="contained"
+                  style={{
+                    height: "30px",
+                    marginTop: "30px",
+                  }}>
+                  Exercise
+                </Button>
+              </Link>
+              <Link to="/practice">
+                <Button
+                  variant="contained"
+                  style={{
+                    marginLeft: "2rem",
+                    height: "30px",
+                    marginTop: "30px",
+                  }}>
+                  Practice
+                </Button>
+              </Link>
+              <Link to="general">
+                <Button
+                  variant="contained"
+                  style={{
+                    marginLeft: "2rem",
+                    height: "30px",
+                    marginTop: "30px",
+                  }}>
+                  General
+                </Button>
+              </Link>
             </div>
           </div>
           <div className={styles.rightResource2}>right</div>
@@ -207,47 +246,55 @@ export default function HomePage() {
                 clean description can help you achieve your goal.
               </p>
               <div>
-                <Button
-                  variant="contained"
-                  style={{
-                    marginLeft: "2rem",
-                    height: "30px",
-                    marginTop: "30px",
-                    width: "160px",
-                  }}>
-                  Take Exercise
-                </Button>
-                <Button
-                  variant="contained"
-                  style={{
-                    marginLeft: "2rem",
-                    height: "30px",
-                    marginTop: "30px",
-                    width: "160px",
-                  }}>
-                  Mock Exercise
-                </Button>
-                <Button
-                  variant="contained"
-                  style={{
-                    marginLeft: "2rem",
-                    height: "30px",
-                    marginTop: "30px",
-                    width: "160px",
-                  }}>
-                  Entrance Exam
-                </Button>
-                <Button
-                  variant="contained"
-                  color="success"
-                  style={{
-                    marginLeft: "2rem",
-                    height: "30px",
-                    marginTop: "30px",
-                    width: "160px",
-                  }}>
-                  Exit Exam
-                </Button>
+                <Link to="exercise-card">
+                  <Button
+                    variant="contained"
+                    style={{
+                      marginLeft: "2rem",
+                      height: "30px",
+                      marginTop: "30px",
+                      width: "160px",
+                    }}>
+                    Take Exercise
+                  </Button>
+                </Link>
+                <Link to="mock">
+                  <Button
+                    variant="contained"
+                    style={{
+                      marginLeft: "2rem",
+                      height: "30px",
+                      marginTop: "30px",
+                      width: "160px",
+                    }}>
+                    Mock Exercise
+                  </Button>
+                </Link>
+                <Link to="entrance">
+                  <Button
+                    variant="contained"
+                    style={{
+                      marginLeft: "2rem",
+                      height: "30px",
+                      marginTop: "30px",
+                      width: "160px",
+                    }}>
+                    Entrance Exam
+                  </Button>
+                </Link>
+                <Link to="exit">
+                  <Button
+                    variant="contained"
+                    color="success"
+                    style={{
+                      marginLeft: "2rem",
+                      height: "30px",
+                      marginTop: "30px",
+                      width: "160px",
+                    }}>
+                    Exit Exam
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

@@ -7,8 +7,6 @@ type GetQuestionDto = {
   count: number;
 };
 
-export async function fetchExerciseCourses() {}
-
 export async function fetchExerciseQuestionFromServer(
   exerciseId: string | any
 ) {
@@ -16,6 +14,7 @@ export async function fetchExerciseQuestionFromServer(
   let data = raw.data;
   return data as Exercise[];
 }
+
 export async function getAvailableExerciseFromServer(
   grade: number,
   courseId: string

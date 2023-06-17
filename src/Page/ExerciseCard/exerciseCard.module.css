@@ -29,9 +29,6 @@
   list-style: none;
   display: flex;
 }
-.cardC {
+.cardBg {
   background-color: blue;
-}
-.cardContainer {
-  margin: 50px;
 }
