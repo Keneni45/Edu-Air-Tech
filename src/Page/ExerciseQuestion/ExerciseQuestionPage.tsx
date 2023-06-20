@@ -1,82 +1,63 @@
 import { useEffect, useState } from "react";
 import SelectDropdown, { SelectOption } from "../../Component/SelectDropdown";
-import { fetchExamCategories } from "../../service/fetchCourseService";
 import { getAvailableExerciseNumberFromServer } from "../../service/fetchExerciseQuestionService";
-import { gradeOptions } from "../../constant";
 import { Question } from "../../models/questions.model";
 
 export default function ExerciseQuestionPage() {
-  const [selectedCourse, setSelectedCourse] = useState("");
   const [selectedExercise, setSelectedExercise] = useState("");
-  const [courses, setCourses] = useState<SelectOption[]>([]);
   const [questins, setQuestions] = useState<Question[]>([]);
   const [chapter, setChapter] = useState<SelectOption[]>([]);
-  const [gradeSelect, setGradeSelected] = useState("");
-  const [exerciseNumber, setExerciseNumber] = useState<SelectOption[]>([]);
   const [chapterSelected, setChapterSelected] = useState("");
+  const [exerciseOptions, setExerciseOptions] = useState<SelectOption[]>([]);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [selectedGrade, setSelectedGrade] = useState("");
+  const [selectedCourse, setSelectedCourse] = useState("");
 
-  async function fetchInitialFromServer() {
-    let data = await fetchExamCategories();
-    let coursesOption = [];
-    for (const course of data[0].courses) {
-      coursesOption.push({ label: course.name, value: course._id });
-    }
-    setCourses(coursesOption);
-    setSelectedCourse(coursesOption[0].value);
-    fetchExercise(coursesOption[0].value, parseInt(gradeOptions[0].value));
-  }
-  useEffect(() => {
-    fetchInitialFromServer();
-  }, []);
   const fetchExercise = async (courseId: string, grade: number) => {
     const exercise = (await getAvailableExerciseNumberFromServer(
       grade,
       courseId
     )) as SelectOption[];
-  };
-  const handleGradeSelect = (e: any) => {
-    setGradeSelected(e.target.value);
-  };
-
-  const handleSelectedCourse = (e: any) => {
-    setSelectedCourse(e.target.value);
-  };
-  const handleExerciseNumber = (e: any) => {
-    setExerciseNumber(e.target.value);
-  };
-  const handleSelectChapter = (e: any) => {
-    setChapterSelected(e.target.value);
+    if (exercise instanceof Error) {
+      setErrorMessage(
+        "there is no available exercise for this course and grade"
+      );
+    } else {
+      setErrorMessage("");
+      setExerciseOptions((prev) => exercise);
+      if (exercise.length > 0) {
+        setSelectedExercise(exercise[0].value.toString());
+      } else {
+        setErrorMessage(
+          "There is No Available Exercise for this Grade and Course. First insert Exercise"
+        );
+      }
+    }
   };
   useEffect(() => {
-    const handleGradeSelect = (e: any) => {
-      setGradeSelected(e.target.value);
-    };
-
-    const handleSelectedCourse = (e: any) => {
-      setSelectedCourse(e.target.value);
-    };
-    const handleExerciseNumber = (e: any) => {
-      setExerciseNumber(e.target.value);
-    };
-    const handleSelectChapter = (e: any) => {
-      setChapterSelected(e.target.value);
-    };
+    fetchExercise(selectedCourse, parseInt(selectedGrade));
   }, []);
+
+  const handleSelectedExerciseNumber = (e: any) => {
+    setSelectedExercise(e.target.value);
+  };
+  const handleSelectedChapter = (e: any) => {
+    setChapterSelected(e.target.value);
+  };
   return (
     <div>
       <div>
         <SelectDropdown
-          title="course"
-          handleSelect={handleSelectedCourse}
-          items={courses}
-        />
-        <SelectDropdown
-          title="chapter"
-          handleSelect={handleSelectChapter}
+          title="Chapter"
+          handleSelect={handleSelectedChapter}
           items={chapter}
         />
+        <SelectDropdown
+          title="Exercise Number"
+          handleSelect={handleSelectedExerciseNumber}
+          items={exerciseOptions}
+        />
       </div>
-      <div>{}</div>
     </div>
   );
 }

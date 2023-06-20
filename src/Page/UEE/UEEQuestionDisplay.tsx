@@ -121,15 +121,42 @@ export default function UEEQuestionDisplay() {
           1.1:-<b>DIRECTION:-</b>Choose the best answer by clicking on the box{" "}
           <hr />
         </p>
-      </div>
-      <div>
-        {questions.length > 0 ? (
-          questions.map((question, index) => (
-            <div key={index}>{question.questionText}</div>
-          ))
-        ) : (
-          <p>Loading....</p>
-        )}
+        <div>
+          {questions.length > 0 ? (
+            <div className={styles.question}>
+              {questions.map((question, index) => (
+                <div key={index} className={styles.questionBody}>
+                  <div className={styles.question}>
+                    {question.questionNumber}
+                    {parse(question.questionText, options)}
+                  </div>
+                </div>
+              ))}
+              <div>
+                <div>
+                  {["a", "b", "c", "d"].map((letter, i) => (
+                    <div key={i}>
+                      <label>
+                        <input
+                          type="radio"
+                          name={`radio-${i}`}
+                          value={"option_" + letter}
+                        />
+                        <span>{`${letter.toLocaleUpperCase()}. `}</span>
+                        {/* {parse(
+                        questions[("option_" + letter) as optionType].toString(),
+                        options
+                      )} */}
+                      </label>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ) : (
+            <p>Loading .....</p>
+          )}
+        </div>
       </div>
     </div>
   );

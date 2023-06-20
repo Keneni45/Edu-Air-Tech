@@ -18,14 +18,12 @@ export async function fetchEntranceQuestion({
   course,
   year,
   page,
-  subCategory,
 }: getQuestionsQuery) {
   let req = {
     course: course.toString(),
     year: parseInt(year.toString()),
     page: parseInt(page?.toString() || "1"),
   };
-  //if (subCategory && subCategory !== "") req.subCategory = subCategory;
 
   let raw = await axios.post(`/questions/for-admin`, req, {});
   let data = raw.data;
