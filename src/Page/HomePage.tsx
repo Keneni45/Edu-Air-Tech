@@ -6,29 +6,22 @@ import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import ArrowForwardSharpIcon from "@mui/icons-material/ArrowForwardSharp";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { setGrade } from "../store/feature/userSelectionSlice";
 
-interface Item {
-  id: number;
-  name: string;
+interface Data {
+  message: string;
 }
-export default function HomePage() {
-  const [typeExercise, setTypeExercise] = useState("");
-  const [gradeSelect, setGradeSelected] = useState([
-    {
-      grade_9: "Grade 9",
-      grade_10: "Grade 10",
-      grade_11: "Grade 11",
-      grade_12: "Grade 12",
-    },
-  ]);
-  const [isOpen, setIsOpen] = useState(false);
 
-  // function handleSelectGrade(e: any) {
-  //   setGradeSelected(e.target.value);
-  // }
-  // function handleTypeExecise(e: any) {
-  //   setTypeExercise(e.target.value);
-  // }
+interface HomePageProps {}
+const select = useSelector(setGrade);
+
+export default function HomePage(props: HomePageProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  const data = { message: "Hello from the home page!" };
+  //const { courseId } = useSelector((state) => state.userSelectionSlice);
+  const dispatch = useDispatch();
   return (
     <div className={styles.home}>
       <div className={styles.homeNavbar}>
@@ -97,11 +90,7 @@ export default function HomePage() {
         <div className={styles.resource}>
           <div className={styles.resourceLeft}>
             <div>
-              <h1 style={{ color: "rgb(29, 70, 69)" }}>
-                {gradeSelect.map((grade) => (
-                  <div key={grade.grade_9}>{grade.grade_9}</div>
-                ))}
-              </h1>
+              <h1 style={{ color: "rgb(29, 70, 69)" }}>grade_9</h1>
             </div>
             <p style={{ marginTop: "40px", fontSize: "32px" }}>
               This platform is best suited for garde 9. Plenty of exercise for
@@ -119,6 +108,9 @@ export default function HomePage() {
                   }}>
                   Exercise
                 </Button>
+              </Link>
+              <Link to="samle" state={{ data }}>
+                <Button variant="contained">Sample</Button>
               </Link>
               <Link to="/practice">
                 <Button
@@ -150,11 +142,7 @@ export default function HomePage() {
           <div className={styles.leftResource1}>left</div>
           <div className={styles.rightResource1}>
             <div>
-              <h1 style={{ color: "rgb(29, 70, 69)" }}>
-                {gradeSelect.map((grade) => (
-                  <div key={grade.grade_9}>{grade.grade_10}</div>
-                ))}
-              </h1>
+              <h1 style={{ color: "rgb(29, 70, 69)" }}>grade_10</h1>
             </div>
             <p style={{ marginTop: "40px", fontSize: "32px" }}>
               This platform is best suited for garde 9. Plenty of exercise for
@@ -201,11 +189,7 @@ export default function HomePage() {
         <div className={styles.resource2}>
           <div className={styles.leftResource2}>
             <div>
-              <h1 style={{ color: "rgb(29, 70, 69)" }}>
-                {gradeSelect.map((grade) => (
-                  <div key={grade.grade_9}>{grade.grade_11}</div>
-                ))}
-              </h1>
+              <h1 style={{ color: "rgb(29, 70, 69)" }}>grade_11</h1>
             </div>
             <p style={{ marginTop: "40px", fontSize: "32px" }}>
               This platform is best suited for garde 9. Plenty of exercise for
@@ -255,11 +239,7 @@ export default function HomePage() {
             <div className={styles.leftResource3}>left</div>
             <div className={styles.rightResource3}>
               <div>
-                <h1 style={{ color: "rgb(29, 70, 69)" }}>
-                  {gradeSelect.map((grade) => (
-                    <div key={grade.grade_9}>{grade.grade_12}</div>
-                  ))}
-                </h1>
+                <h1 style={{ color: "rgb(29, 70, 69)" }}>grade_12</h1>
               </div>
               <p style={{ marginTop: "40px", fontSize: "32px" }}>
                 This platform is best suited for garde 9. Plenty of exercise for

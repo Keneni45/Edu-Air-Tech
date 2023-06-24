@@ -2,14 +2,16 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface UserSelectionState {
-  grade: number;
+  gradeId: string;
   courseId: string;
   selectedCourse: string;
+  selectedGrade: string;
 }
 const initialState: UserSelectionState = {
-  grade: 9,
+  gradeId: "",
   courseId: "",
   selectedCourse: "",
+  selectedGrade: "",
 };
 export const userSelectionSlice = createSlice({
   name: "userSelection",
@@ -21,8 +23,11 @@ export const userSelectionSlice = createSlice({
     setSelectedCourse: (state, action: PayloadAction<string>) => {
       state.selectedCourse = action.payload;
     },
-    setGrade: (state, action: PayloadAction<number>) => {
-      state.grade = action.payload;
+    setSelectedGrade: (state, action: PayloadAction<string>) => {
+      state.selectedGrade = action.payload;
+    },
+    setGrade: (state, action: PayloadAction<string>) => {
+      state.gradeId = action.payload;
     },
   },
 });
