@@ -6,6 +6,8 @@ import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import ArrowForwardSharpIcon from "@mui/icons-material/ArrowForwardSharp";
+import home from "../assets/home.jpg";
+import student from "../assets/student.jpg";
 
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
@@ -46,11 +48,13 @@ export default function HomePage() {
               Resource
             </a>
           </li>
-          <li className={styles.list6}>
-            <a href="#/contact" className={styles.a}>
-              Contact
-            </a>
-          </li>
+          <Link to="/contact">
+            <li className={styles.list6}>
+              <a href="#/contact" className={styles.a}>
+                Contact
+              </a>
+            </li>
+          </Link>
           <Link to="login">
             <Button
               sx={{
@@ -100,7 +104,9 @@ export default function HomePage() {
           </div>
 
           <div className={styles.rightHomeBody}>
-            <div className={styles.imgBg}></div>
+            <div className={styles.imgBg}>
+              <img src={home} alt="" className={styles.img} />
+            </div>
           </div>
         </div>
 
@@ -111,7 +117,7 @@ export default function HomePage() {
         <div className={styles.resource}>
           <div className={styles.resourceLeft}>
             <div>
-              <h1 style={{ color: "rgb(29, 70, 69)" }}>9</h1>
+              <h1 style={{ color: "rgb(29, 70, 69)" }}>Grade 9</h1>
             </div>
             <p style={{ marginTop: "40px", fontSize: "32px" }}>
               This platform is best suited for garde 9. Plenty of exercise for
@@ -126,7 +132,7 @@ export default function HomePage() {
                     height: "30px",
                     marginTop: "30px",
                   }}>
-                  Exercise{grade}
+                  Exercise
                 </Button>
               </Link>
 
@@ -154,13 +160,19 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-          <div className={styles.resourceRight}>image</div>
+          <div className={styles.resourceRight}>
+            <div className={styles.resourceBg}>
+              <img src={student} alt="" className={styles.resourceImg} />
+            </div>
+          </div>
         </div>
         <div className={styles.resource1}>
-          <div className={styles.leftResource1}>left</div>
+          <div className={styles.leftResource1}>
+            <img src={student} alt="" className={styles.leftImg} />
+          </div>
           <div className={styles.rightResource1}>
             <div>
-              <h1 style={{ color: "rgb(29, 70, 69)" }}>10</h1>
+              <h1 style={{ color: "rgb(29, 70, 69)" }}>Grade 10</h1>
             </div>
             <p style={{ marginTop: "40px", fontSize: "32px" }}>
               This platform is best suited for garde 9. Plenty of exercise for
@@ -206,7 +218,7 @@ export default function HomePage() {
         <div className={styles.resource2}>
           <div className={styles.leftResource2}>
             <div>
-              <h1 style={{ color: "rgb(29, 70, 69)" }}>11</h1>
+              <h1 style={{ color: "rgb(29, 70, 69)" }}>Grade 11</h1>
             </div>
             <p style={{ marginTop: "40px", fontSize: "32px" }}>
               This platform is best suited for garde 9. Plenty of exercise for
@@ -247,14 +259,18 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-          <div className={styles.rightResource2}>right</div>
+          <div className={styles.rightResource2}>
+            <img src={student} alt="" className={styles.resourceImg} />
+          </div>
         </div>
         <div>
           <div className={styles.resource3}>
-            <div className={styles.leftResource3}>left</div>
+            <div className={styles.leftResource3}>
+              <img src={student} alt="" className={styles.leftImg} />
+            </div>
             <div className={styles.rightResource3}>
               <div>
-                <h1 style={{ color: "rgb(29, 70, 69)" }}>12</h1>
+                <h1 style={{ color: "rgb(29, 70, 69)" }}>Grade 12</h1>
               </div>
               <p style={{ marginTop: "40px", fontSize: "32px" }}>
                 This platform is best suited for garde 9. Plenty of exercise for
@@ -334,6 +350,7 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+
       <div className={styles.footerContent}>
         <div className={styles.footer}>
           <p className={styles.contact}>Contact</p>

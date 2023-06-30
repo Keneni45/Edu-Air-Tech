@@ -21,6 +21,7 @@ import PracticeQuestionPage from "./Page/PracticeQuestion/PracticeQuestionPage";
 import ExitExamPage from "./Page/ExitExam/ExitExamPage";
 import samle from "./Page/UEE/samle";
 import Sample from "./Page/UEE/samle";
+import Contact from "./Page/ContactPage/Contact";
 
 function App() {
   const router = createBrowserRouter([
@@ -46,7 +47,8 @@ function App() {
     { path: "start-exam", element: <StartExamPage /> },
     { path: "practice", element: <PracticeQuestionPage /> },
     { path: "exit", element: <ExitExamPage /> },
-    { path: "samle", element: <Sample /> },
+
+    { path: "contact", element: <Contact /> },
   ]);
   return (
     <div>

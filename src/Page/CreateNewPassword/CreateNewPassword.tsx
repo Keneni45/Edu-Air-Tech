@@ -3,7 +3,6 @@ import styles from "./cretae.module.css";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
 
-import SuccessModal from "../../Component/SuccessModal";
 import Modal from "../../Component/Modal/Modal";
 
 export default function CreateNewPassword() {
