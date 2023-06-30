@@ -12,15 +12,27 @@ export async function fetchExerciseQuestionFromServer(
 ) {
   let raw = await axios.get(`/exercise-questions/${exerciseId}`);
   let data = raw.data;
-  return data as GetQuestionDto;
+  return data as Exercise[];
 }
-
-export async function getAvailableExerciseNumberFromServer(
-  grade: number,
-  courseId: string
+export async function getAvailableExerciseChapter(
+  courseId: string,
+  grade: number
 ) {
   try {
     let raw = await axios.post("/exercises/get-all", { grade, courseId });
+    let data = raw.data as Exercise[];
+    if (data.length == 0) return [];
+    return data.map((chapter) => ({
+      label: `Chapter ${chapter.chapter}`,
+      value: chapter._id,
+    }));
+  } catch (error) {
+    return error;
+  }
+}
+export async function getAvailableExerciseNumberFromServer(chapterId: string) {
+  try {
+    let raw = await axios.post("/exercises/get-all", { chapterId });
     let data = raw.data as Exercise[];
     if (data.length == 0) return [];
     return data.map((exercise) => ({

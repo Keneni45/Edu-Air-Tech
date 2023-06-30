@@ -1,22 +1,41 @@
 import { useEffect, useState } from "react";
 import SelectDropdown, { SelectOption } from "../../Component/SelectDropdown";
-import { getAvailableExerciseNumberFromServer } from "../../service/fetchExerciseQuestionService";
-import { Question } from "../../models/questions.model";
+import {
+  fetchExerciseQuestionFromServer,
+  getAvailableExerciseChapter,
+  getAvailableExerciseNumberFromServer,
+} from "../../service/fetchExerciseQuestionService";
+
+import { Exercise } from "../../models/exercises.model";
+import { useLocation } from "react-router-dom";
 
 export default function ExerciseQuestionPage() {
   const [selectedExercise, setSelectedExercise] = useState("");
-  const [questins, setQuestions] = useState<Question[]>([]);
+  const [questions, setQuestions] = useState<Exercise[]>([]);
   const [chapter, setChapter] = useState<SelectOption[]>([]);
-  const [chapterSelected, setChapterSelected] = useState("");
+  const [selectChapter, setSelectedChapter] = useState("");
   const [exerciseOptions, setExerciseOptions] = useState<SelectOption[]>([]);
   const [errorMessage, setErrorMessage] = useState("");
   const [selectedGrade, setSelectedGrade] = useState("");
   const [selectedCourse, setSelectedCourse] = useState("");
+  const location = useLocation();
 
-  const fetchExercise = async (courseId: string, grade: number) => {
+  const fetchChapter = async (courseId: string, grade: number) => {
+    const chapter = (await getAvailableExerciseChapter(
+      courseId,
+      grade
+    )) as SelectOption[];
+    if (chapter instanceof Error) {
+      setErrorMessage("there is no available chapter for this course");
+    } else {
+      setErrorMessage("");
+      setChapter((prev) => chapter);
+    }
+  };
+
+  const fetchExercise = async (chapterId: string) => {
     const exercise = (await getAvailableExerciseNumberFromServer(
-      grade,
-      courseId
+      chapterId
     )) as SelectOption[];
     if (exercise instanceof Error) {
       setErrorMessage(
@@ -34,15 +53,29 @@ export default function ExerciseQuestionPage() {
       }
     }
   };
+
+  const getQuestion = async (exerciseId: number) => {
+    const questions = await fetchExerciseQuestionFromServer(exerciseId);
+    if (questions.length == 0) {
+      setErrorMessage("No Questions inserted Yet For this Exercise");
+      return;
+    }
+    setQuestions(questions);
+  };
   useEffect(() => {
-    fetchExercise(selectedCourse, parseInt(selectedGrade));
+    fetchExercise(selectChapter);
+    fetchChapter(selectedCourse, parseInt(selectedGrade));
+  }, []);
+  useEffect(() => {
+    const exerciseId = location.state.exerciseId;
+    if (exerciseId) getQuestion(exerciseId);
   }, []);
 
   const handleSelectedExerciseNumber = (e: any) => {
     setSelectedExercise(e.target.value);
   };
   const handleSelectedChapter = (e: any) => {
-    setChapterSelected(e.target.value);
+    setSelectedChapter(e.target.value);
   };
   return (
     <div>
@@ -57,6 +90,15 @@ export default function ExerciseQuestionPage() {
           handleSelect={handleSelectedExerciseNumber}
           items={exerciseOptions}
         />
+      </div>
+      <div>
+        {questions.length > 0 ? (
+          questions.map((question, index) => (
+            <div key={index}>{question.questions}</div>
+          ))
+        ) : (
+          <p>Loading....</p>
+        )}
       </div>
     </div>
   );

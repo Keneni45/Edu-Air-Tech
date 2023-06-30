@@ -1,11 +1,5 @@
-import { RouteComponentProp } from "react-router-dom";
-interface OtherPageProps extends RouteComponentProps<{ id: string }> {}
+import React from "react";
 
-export default function Sample(props: OtherPageProps) {
-  const { data } = props.location.state as { data: Data };
-  return (
-    <div>
-      <p>{data.message}</p>
-    </div>
-  );
+export default function samle() {
+  return <div>kkkkkkkkkkkkkkkkkkkkkkkkkk</div>;
 }

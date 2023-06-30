@@ -6,30 +6,51 @@ import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import ArrowForwardSharpIcon from "@mui/icons-material/ArrowForwardSharp";
-import { useSelector } from "react-redux";
+
 import { useDispatch } from "react-redux";
-import { setGrade } from "../store/feature/userSelectionSlice";
+import { useSelector } from "react-redux";
+import { setSelectedGrade } from "../store/feature/userSelectionSlice";
 
-interface Data {
-  message: string;
+interface user {
+  id: number;
+  name: string;
 }
-
-interface HomePageProps {}
-const select = useSelector(setGrade);
-
-export default function HomePage(props: HomePageProps) {
-  const [isOpen, setIsOpen] = useState(false);
-  const data = { message: "Hello from the home page!" };
-  //const { courseId } = useSelector((state) => state.userSelectionSlice);
+export default function HomePage() {
   const dispatch = useDispatch();
+  const grade = useSelector((state: any) => state.selection);
+
+  const handleChange = (event: any) => {
+    dispatch(setSelectedGrade(event.target.value));
+  };
+
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className={styles.home}>
       <div className={styles.homeNavbar}>
         <ul className={styles.ulHome}>
-          <li className={styles.list6}>Home</li>
-          <li className={styles.list6}>About</li>
-          <li className={styles.list6}>Resource</li>
-          <li className={styles.list6}>Contact</li>
+          <li className={styles.list6}>
+            <a href="#/home" className={styles.a}>
+              Home
+            </a>
+          </li>
+          <li className={styles.list6}>
+            {" "}
+            <a className={styles.a} href="#/about">
+              About
+            </a>
+          </li>
+          <li className={styles.list6}>
+            {" "}
+            <a href="#/resource" className={styles.a}>
+              Resource
+            </a>
+          </li>
+          <li className={styles.list6}>
+            <a href="#/contact" className={styles.a}>
+              Contact
+            </a>
+          </li>
           <Link to="login">
             <Button
               sx={{
@@ -83,35 +104,32 @@ export default function HomePage(props: HomePageProps) {
           </div>
         </div>
 
-        <div>
+        <div id="/resource">
           <p className={styles.resourceTxt}>Resource</p>
           <div className={styles.resourceLine}></div>
         </div>
         <div className={styles.resource}>
           <div className={styles.resourceLeft}>
             <div>
-              <h1 style={{ color: "rgb(29, 70, 69)" }}>grade_9</h1>
+              <h1 style={{ color: "rgb(29, 70, 69)" }}>9</h1>
             </div>
             <p style={{ marginTop: "40px", fontSize: "32px" }}>
               This platform is best suited for garde 9. Plenty of exercise for
               clean description can help you achieve your goal.
             </p>
             <div>
-              <Link
-                to="exercise-card"
-                state={{ grade: "selectGrade", type: "typeExercise" }}>
+              <Link to="exercise-card">
                 <Button
+                  onClick={handleChange}
                   variant="contained"
                   style={{
                     height: "30px",
                     marginTop: "30px",
                   }}>
-                  Exercise
+                  Exercise{grade}
                 </Button>
               </Link>
-              <Link to="samle" state={{ data }}>
-                <Button variant="contained">Sample</Button>
-              </Link>
+
               <Link to="/practice">
                 <Button
                   variant="contained"
@@ -142,17 +160,16 @@ export default function HomePage(props: HomePageProps) {
           <div className={styles.leftResource1}>left</div>
           <div className={styles.rightResource1}>
             <div>
-              <h1 style={{ color: "rgb(29, 70, 69)" }}>grade_10</h1>
+              <h1 style={{ color: "rgb(29, 70, 69)" }}>10</h1>
             </div>
             <p style={{ marginTop: "40px", fontSize: "32px" }}>
               This platform is best suited for garde 9. Plenty of exercise for
               clean description can help you achieve your goal.
             </p>
             <div>
-              <Link
-                to="exercise-card"
-                state={{ grade: "selectGrade", type: "typeExercise" }}>
+              <Link to="exercise-card">
                 <Button
+                  onClick={handleChange}
                   variant="contained"
                   style={{
                     height: "30px",
@@ -189,16 +206,14 @@ export default function HomePage(props: HomePageProps) {
         <div className={styles.resource2}>
           <div className={styles.leftResource2}>
             <div>
-              <h1 style={{ color: "rgb(29, 70, 69)" }}>grade_11</h1>
+              <h1 style={{ color: "rgb(29, 70, 69)" }}>11</h1>
             </div>
             <p style={{ marginTop: "40px", fontSize: "32px" }}>
               This platform is best suited for garde 9. Plenty of exercise for
               clean description can help you achieve your goal.
             </p>
             <div>
-              <Link
-                to="exercise-card"
-                state={{ grade: "selectGrade", type: "typeExercise" }}>
+              <Link to="exercise-card">
                 <Button
                   variant="contained"
                   style={{
@@ -239,17 +254,16 @@ export default function HomePage(props: HomePageProps) {
             <div className={styles.leftResource3}>left</div>
             <div className={styles.rightResource3}>
               <div>
-                <h1 style={{ color: "rgb(29, 70, 69)" }}>grade_12</h1>
+                <h1 style={{ color: "rgb(29, 70, 69)" }}>12</h1>
               </div>
               <p style={{ marginTop: "40px", fontSize: "32px" }}>
                 This platform is best suited for garde 9. Plenty of exercise for
                 clean description can help you achieve your goal.
               </p>
               <div>
-                <Link
-                  to="exercise-card"
-                  state={{ grade: "selectGrade", type: "typeExercise" }}>
+                <Link to="exercise-card">
                   <Button
+                    onClick={handleChange}
                     variant="contained"
                     style={{
                       marginLeft: "2rem",
@@ -300,7 +314,7 @@ export default function HomePage(props: HomePageProps) {
               </div>
             </div>
           </div>
-          <div className={styles.aboutBody}>
+          <div className={styles.aboutBody} id="/about">
             <p className={styles.aboutTxt}>About</p>
             <div className={styles.aboutLine}></div>
             <p style={{ fontSize: "24px", marginTop: "20px" }}>
