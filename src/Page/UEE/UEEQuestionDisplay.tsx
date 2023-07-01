@@ -143,10 +143,12 @@ export default function UEEQuestionDisplay() {
                           value={"option_" + letter}
                         />
                         <span>{`${letter.toLocaleUpperCase()}. `}</span>
-                        {/* {parse(
-                        questions[("option_" + letter) as optionType].toString(),
-                        options
-                      )} */}
+                        {parse(
+                          question[
+                            ("option_" + letter) as optionType
+                          ].toString(),
+                          options
+                        )}
                       </label>
                     </div>
                   ))}

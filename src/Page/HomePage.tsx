@@ -48,12 +48,9 @@ export default function HomePage() {
               Resource
             </a>
           </li>
+
           <Link to="/contact">
-            <li className={styles.list6}>
-              <a href="#/contact" className={styles.a}>
-                Contact
-              </a>
-            </li>
+            <li className={styles.list6}>Contact</li>
           </Link>
           <Link to="login">
             <Button

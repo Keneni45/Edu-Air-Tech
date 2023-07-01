@@ -1,5 +1,20 @@
+.body {
+  background-image: url("./home.jpg");
+  background-size: cover;
+  background-position: center;
+}
 .contactBg {
-  align-items: center;
-  justify-content: center;
-  background: "src/home.jpg";
+  margin-left: 300px;
+}
+.contactFooter {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 400px;
+  margin-right: 400px;
+  margin-top: 100px;
+  margin-bottom: 200px;
+}
+.listSocial {
+  list-style: none;
+  display: flex;
 }
