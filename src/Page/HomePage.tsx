@@ -8,24 +8,24 @@ import { useState } from "react";
 import ArrowForwardSharpIcon from "@mui/icons-material/ArrowForwardSharp";
 import home from "../assets/home.jpg";
 import student from "../assets/student.jpg";
+import { dividerClasses } from "@mui/material";
 
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { setSelectedGrade } from "../store/feature/userSelectionSlice";
-
-interface user {
-  id: number;
-  name: string;
-}
 export default function HomePage() {
-  const dispatch = useDispatch();
-  const grade = useSelector((state: any) => state.selection);
-
-  const handleChange = (event: any) => {
-    dispatch(setSelectedGrade(event.target.value));
-  };
-
   const [isOpen, setIsOpen] = useState(false);
+  const [gradeSelected, setGradeSelected] = useState("grade");
+  const [grade, setGrade] = useState([
+    {
+      grade_9: "Grade 9",
+      grade_10: "Grade 10",
+      grade_11: "Grade 11",
+      grade_12: "Grade 12",
+    },
+  ]);
+
+  function handleSelectGrade(e: any) {
+    console.log("select grade option from state");
+    setGradeSelected(e.target.value);
+  }
 
   return (
     <div className={styles.home}>
@@ -113,17 +113,23 @@ export default function HomePage() {
         </div>
         <div className={styles.resource}>
           <div className={styles.resourceLeft}>
-            <div>
-              <h1 style={{ color: "rgb(29, 70, 69)" }}>Grade 9</h1>
+            <div onChange={handleSelectGrade}>
+              <h1>
+                {grade.map((grade) => (
+                  <div style={{ color: "rgb(29, 70, 69)" }}>
+                    {grade.grade_9}
+                  </div>
+                ))}
+              </h1>
             </div>
             <p style={{ marginTop: "40px", fontSize: "32px" }}>
               This platform is best suited for garde 9. Plenty of exercise for
               clean description can help you achieve your goal.
             </p>
             <div>
-              <Link to="exercise-card">
+              <Link to="exercise" state={setGradeSelected}>
                 <Button
-                  onClick={handleChange}
+                  onClick={handleSelectGrade}
                   variant="contained"
                   style={{
                     height: "30px",
@@ -168,17 +174,20 @@ export default function HomePage() {
             <img src={student} alt="" className={styles.leftImg} />
           </div>
           <div className={styles.rightResource1}>
-            <div>
-              <h1 style={{ color: "rgb(29, 70, 69)" }}>Grade 10</h1>
-            </div>
+            <h1>
+              {grade.map((grade) => (
+                <div style={{ color: "rgb(29, 70, 69)" }}>{grade.grade_10}</div>
+              ))}
+            </h1>
+
             <p style={{ marginTop: "40px", fontSize: "32px" }}>
               This platform is best suited for garde 9. Plenty of exercise for
               clean description can help you achieve your goal.
             </p>
             <div>
-              <Link to="exercise-card">
+              <Link to="exercise">
                 <Button
-                  onClick={handleChange}
+                  onClick={handleSelectGrade}
                   variant="contained"
                   style={{
                     height: "30px",
@@ -213,10 +222,12 @@ export default function HomePage() {
           </div>
         </div>
         <div className={styles.resource2}>
-          <div className={styles.leftResource2}>
-            <div>
-              <h1 style={{ color: "rgb(29, 70, 69)" }}>Grade 11</h1>
-            </div>
+          <div className={styles.leftResource2} onChange={handleSelectGrade}>
+            <h1>
+              {grade.map((grade) => (
+                <div style={{ color: "rgb(29, 70, 69)" }}>{grade.grade_11}</div>
+              ))}
+            </h1>
             <p style={{ marginTop: "40px", fontSize: "32px" }}>
               This platform is best suited for garde 9. Plenty of exercise for
               clean description can help you achieve your goal.
@@ -224,6 +235,7 @@ export default function HomePage() {
             <div>
               <Link to="exercise-card">
                 <Button
+                  onClick={handleSelectGrade}
                   variant="contained"
                   style={{
                     height: "30px",
@@ -266,17 +278,21 @@ export default function HomePage() {
               <img src={student} alt="" className={styles.leftImg} />
             </div>
             <div className={styles.rightResource3}>
-              <div>
-                <h1 style={{ color: "rgb(29, 70, 69)" }}>Grade 12</h1>
-              </div>
+              <h1>
+                {grade.map((grade) => (
+                  <div style={{ color: "rgb(29, 70, 69)" }}>
+                    {grade.grade_12}
+                  </div>
+                ))}
+              </h1>
               <p style={{ marginTop: "40px", fontSize: "32px" }}>
                 This platform is best suited for garde 9. Plenty of exercise for
                 clean description can help you achieve your goal.
               </p>
               <div>
-                <Link to="exercise-card">
+                <Link to="exercise">
                   <Button
-                    onClick={handleChange}
+                    onClick={handleSelectGrade}
                     variant="contained"
                     style={{
                       marginLeft: "2rem",

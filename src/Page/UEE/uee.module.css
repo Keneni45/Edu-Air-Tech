@@ -1,5 +1,12 @@
-.ueeHeader {
+.questionHeader {
   height: 40px;
   width: 100%;
   background-color: aquamarine;
+}
+.questionDisplay {
+  margin-left: 280px;
+  margin-right: 280px;
+}
+.questionBg1 {
+  background-color: aliceblue;
 }

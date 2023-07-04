@@ -16,9 +16,12 @@ export default function ExerciseQuestionPage() {
   const [selectChapter, setSelectedChapter] = useState("");
   const [exerciseOptions, setExerciseOptions] = useState<SelectOption[]>([]);
   const [errorMessage, setErrorMessage] = useState("");
-  const [selectedGrade, setSelectedGrade] = useState("");
   const [selectedCourse, setSelectedCourse] = useState("");
   const location = useLocation();
+  const setSelectedGrade = location.state.setSelectedGrade;
+  interface selectGrade {
+    setSelectedGrade: string;
+  }
 
   const fetchChapter = async (courseId: string, grade: number) => {
     const chapter = (await getAvailableExerciseChapter(
@@ -64,12 +67,12 @@ export default function ExerciseQuestionPage() {
   };
   useEffect(() => {
     fetchExercise(selectChapter);
-    fetchChapter(selectedCourse, parseInt(selectedGrade));
+    fetchChapter(selectedCourse, parseInt(""));
   }, []);
-  useEffect(() => {
-    const exerciseId = location.state.exerciseId;
-    if (exerciseId) getQuestion(exerciseId);
-  }, []);
+  // useEffect(() => {
+  //   const exerciseId = location.state.exerciseId;
+  //   if (exerciseId) getQuestion(exerciseId);
+  // }, []);
 
   const handleSelectedExerciseNumber = (e: any) => {
     setSelectedExercise(e.target.value);
@@ -91,7 +94,9 @@ export default function ExerciseQuestionPage() {
           items={exerciseOptions}
         />
       </div>
-      <div>
+      <div>{setSelectedGrade.grade_10}</div>\
+      <p>hello:{setSelectedGrade.grade_9}</p>
+      {/* <div>
         {questions.length > 0 ? (
           questions.map((question, index) => (
             <div key={index}>{question.questions}</div>
@@ -99,7 +104,7 @@ export default function ExerciseQuestionPage() {
         ) : (
           <p>Loading....</p>
         )}
-      </div>
+      </div> */}
     </div>
   );
 }

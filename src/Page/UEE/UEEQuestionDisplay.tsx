@@ -12,6 +12,7 @@ import parse, {
   domToReact,
 } from "html-react-parser";
 import { fetchQuestionCoursesSelectionOption } from "../../service/fetchCourseService";
+import { ProgressBar } from "../../Component/ProgressBar";
 
 const options: HTMLReactParserOptions = {
   replace: (domNode) => {
@@ -103,60 +104,74 @@ export default function UEEQuestionDisplay() {
   };
 
   return (
-    <div>
-      <div className={styles.ueeHeader}>
-        <SelectDropdown
-          title="course"
-          items={courseOptions}
-          handleSelect={handleSelectCourse}
-        />
-        <SelectDropdown
-          title="year"
-          items={yearOptions}
-          handleSelect={handleSelectYear}
-        />
+    <div className={styles.questionContainer}>
+      <div className={styles.questionHeader}>
+        <div className={styles.questionHeader}>
+          <SelectDropdown
+            title="course"
+            items={courseOptions}
+            handleSelect={handleSelectCourse}
+          />
+          <SelectDropdown
+            title="year"
+            items={yearOptions}
+            handleSelect={handleSelectYear}
+          />
+        </div>
       </div>
-      <div className={styles.questionDirection}>
-        <p>
-          1.1:-<b>DIRECTION:-</b>Choose the best answer by clicking on the box{" "}
-          <hr />
-        </p>
-        <div>
+      <div className={styles.questionBg1}>
+        <div className={styles.questionDisplay}>
+          <div>
+            <ProgressBar />
+          </div>
+          <div className={styles.questionDirection}>
+            <p>
+              1.1:-<b>DIRECTION:-</b>Choose the best answer by clicking on the
+              box
+            </p>
+          </div>
           {questions.length > 0 ? (
             <div className={styles.question}>
               {questions.map((question, index) => (
-                <div key={index} className={styles.questionBody}>
+                <div key={index} style={{ marginTop: "5px" }}>
                   <div className={styles.question}>
-                    {question.questionNumber}
+                    {question.questionNumber}.{" "}
                     {parse(question.questionText, options)}
+                  </div>
+
+                  <div className="question-option">
+                    <div className="checkbox">
+                      {["a", "b", "c", "d"].map((letter, i) => (
+                        <div key={i}>
+                          <label className="control">
+                            <input
+                              type="radio"
+                              name={`color-${index}`}
+                              value={"option_" + letter}
+                              className="control_input visually-hidden"
+                            />
+                            <span className="control__indicator"></span>
+                          </label>
+                          <label>
+                            <span style={{ marginLeft: "0.5rem" }}>
+                              {`${letter.toLocaleUpperCase()}. `}
+                              {parse(
+                                question[
+                                  ("option_" + letter) as optionType
+                                ].toString(),
+                                options
+                              )}
+                            </span>
+                          </label>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               ))}
-              <div>
-                <div>
-                  {["a", "b", "c", "d"].map((letter, i) => (
-                    <div key={i}>
-                      <label>
-                        <input
-                          type="radio"
-                          name={`radio-${i}`}
-                          value={"option_" + letter}
-                        />
-                        <span>{`${letter.toLocaleUpperCase()}. `}</span>
-                        {parse(
-                          question[
-                            ("option_" + letter) as optionType
-                          ].toString(),
-                          options
-                        )}
-                      </label>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
           ) : (
-            <p>Loading .....</p>
+            <p>Loading...</p>
           )}
         </div>
       </div>
