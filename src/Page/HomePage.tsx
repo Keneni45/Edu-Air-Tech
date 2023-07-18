@@ -59,13 +59,6 @@ export default function HomePage() {
             </h1>
 
             <p style={{ fontSize: "24px" }}>The First Ethiopia Exam Archive </p>
-            {/*<Link to="/register">
-               <Button
-                variant="contained"
-                sx={{ width: "160px", height: "50px", marginTop: "20px" }}>
-                Get Started
-              </Button>
-            </Link> */}
           </div>
           <div className={styles.middleLine}>
             <div className={styles.line}></div>
@@ -103,7 +96,9 @@ export default function HomePage() {
               clean description can help you achieve your goal.
             </p>
             <div>
-              <Link to="exercise" state={setGradeSelected}>
+              <Link
+                to="exercise"
+                state={gradeSelected.map((grade) => grade.grade_9)}>
                 <Button
                   onClick={handleSelectGrade}
                   variant="contained"
@@ -161,7 +156,9 @@ export default function HomePage() {
               clean description can help you achieve your goal.
             </p>
             <div>
-              <Link to="exercise" state={setGradeSelected}>
+              <Link
+                to="exercise"
+                state={gradeSelected.map((grade) => grade.grade_10)}>
                 <Button
                   onClick={handleSelectGrade}
                   variant="contained"
@@ -209,7 +206,9 @@ export default function HomePage() {
               clean description can help you achieve your goal.
             </p>
             <div>
-              <Link to="exercise" state={setGradeSelected}>
+              <Link
+                to="exercise"
+                state={gradeSelected.map((grade) => grade.grade_11)}>
                 <Button
                   onClick={handleSelectGrade}
                   variant="contained"
@@ -266,7 +265,9 @@ export default function HomePage() {
                 clean description can help you achieve your goal.
               </p>
               <div>
-                <Link to="exercise" state={setGradeSelected}>
+                <Link
+                  to="exercise"
+                  state={gradeSelected.map((grade) => grade.grade_12)}>
                   <Button
                     onClick={handleSelectGrade}
                     variant="contained"
