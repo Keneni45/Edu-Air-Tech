@@ -22,6 +22,7 @@ import ExitExamPage from "./Page/ExitExam/ExitExamPage";
 import samle from "./Page/UEE/samle";
 import Sample from "./Page/UEE/samle";
 import Contact from "./Page/ContactPage/Contact";
+import Pagination from "./Component/Pagination";
 
 function App() {
   const router = createBrowserRouter([
@@ -47,6 +48,7 @@ function App() {
     { path: "start-exam", element: <StartExamPage /> },
     { path: "practice", element: <PracticeQuestionPage /> },
     { path: "exit", element: <ExitExamPage /> },
+    //{ path: "pagination", element: <Pagination /> },
 
     { path: "contact", element: <Contact /> },
   ]);

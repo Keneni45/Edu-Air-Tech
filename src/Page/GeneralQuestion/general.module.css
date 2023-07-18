@@ -1,0 +1,12 @@
+.questionHeader {
+  height: 40px;
+  width: 100%;
+  background-color: aquamarine;
+}
+.questionDisplay {
+  margin-left: 80px;
+  margin-right: 80px;
+}
+.questionBg1 {
+  background-color: aliceblue;
+}

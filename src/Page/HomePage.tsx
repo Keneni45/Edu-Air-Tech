@@ -5,15 +5,12 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import ArrowForwardSharpIcon from "@mui/icons-material/ArrowForwardSharp";
 import home from "../assets/home.jpg";
 import student from "../assets/student.jpg";
-import { dividerClasses } from "@mui/material";
 
 export default function HomePage() {
   const [isOpen, setIsOpen] = useState(false);
-  const [gradeSelected, setGradeSelected] = useState("grade");
-  const [grade, setGrade] = useState([
+  const [gradeSelected, setGradeSelected] = useState([
     {
       grade_9: "Grade 9",
       grade_10: "Grade 10",
@@ -23,7 +20,6 @@ export default function HomePage() {
   ]);
 
   function handleSelectGrade(e: any) {
-    console.log("select grade option from state");
     setGradeSelected(e.target.value);
   }
 
@@ -49,28 +45,8 @@ export default function HomePage() {
             </a>
           </li>
 
-          <Link to="/contact">
+          <Link to="/contact" style={{ textDecoration: "none" }}>
             <li className={styles.list6}>Contact</li>
-          </Link>
-          <Link to="login">
-            <Button
-              sx={{
-                width: "160px",
-                border: "solid 1px",
-                color: "rgb(212, 210, 227)",
-                height: "50px",
-              }}
-              onClick={() => setIsOpen(true)}>
-              Login
-              <ArrowForwardSharpIcon
-                sx={{ marginLeft: "4px", height: "40px" }}
-              />
-            </Button>
-          </Link>
-          <Link to="/register">
-            <Button variant="contained" sx={{ width: "160px", height: "50px" }}>
-              Get Started
-            </Button>
           </Link>
         </ul>
       </div>
@@ -83,13 +59,13 @@ export default function HomePage() {
             </h1>
 
             <p style={{ fontSize: "24px" }}>The First Ethiopia Exam Archive </p>
-            <Link to="/register">
-              <Button
+            {/*<Link to="/register">
+               <Button
                 variant="contained"
                 sx={{ width: "160px", height: "50px", marginTop: "20px" }}>
                 Get Started
               </Button>
-            </Link>
+            </Link> */}
           </div>
           <div className={styles.middleLine}>
             <div className={styles.line}></div>
@@ -115,7 +91,7 @@ export default function HomePage() {
           <div className={styles.resourceLeft}>
             <div onChange={handleSelectGrade}>
               <h1>
-                {grade.map((grade) => (
+                {gradeSelected.map((grade) => (
                   <div style={{ color: "rgb(29, 70, 69)" }}>
                     {grade.grade_9}
                   </div>
@@ -173,9 +149,9 @@ export default function HomePage() {
           <div className={styles.leftResource1}>
             <img src={student} alt="" className={styles.leftImg} />
           </div>
-          <div className={styles.rightResource1}>
+          <div className={styles.rightResource1} onClick={handleSelectGrade}>
             <h1>
-              {grade.map((grade) => (
+              {gradeSelected.map((grade) => (
                 <div style={{ color: "rgb(29, 70, 69)" }}>{grade.grade_10}</div>
               ))}
             </h1>
@@ -185,7 +161,7 @@ export default function HomePage() {
               clean description can help you achieve your goal.
             </p>
             <div>
-              <Link to="exercise">
+              <Link to="exercise" state={setGradeSelected}>
                 <Button
                   onClick={handleSelectGrade}
                   variant="contained"
@@ -222,9 +198,9 @@ export default function HomePage() {
           </div>
         </div>
         <div className={styles.resource2}>
-          <div className={styles.leftResource2} onChange={handleSelectGrade}>
+          <div className={styles.leftResource2} onClick={handleSelectGrade}>
             <h1>
-              {grade.map((grade) => (
+              {gradeSelected.map((grade) => (
                 <div style={{ color: "rgb(29, 70, 69)" }}>{grade.grade_11}</div>
               ))}
             </h1>
@@ -233,7 +209,7 @@ export default function HomePage() {
               clean description can help you achieve your goal.
             </p>
             <div>
-              <Link to="exercise-card">
+              <Link to="exercise" state={setGradeSelected}>
                 <Button
                   onClick={handleSelectGrade}
                   variant="contained"
@@ -277,9 +253,9 @@ export default function HomePage() {
             <div className={styles.leftResource3}>
               <img src={student} alt="" className={styles.leftImg} />
             </div>
-            <div className={styles.rightResource3}>
+            <div className={styles.rightResource3} onClick={handleSelectGrade}>
               <h1>
-                {grade.map((grade) => (
+                {gradeSelected.map((grade) => (
                   <div style={{ color: "rgb(29, 70, 69)" }}>
                     {grade.grade_12}
                   </div>
@@ -290,7 +266,7 @@ export default function HomePage() {
                 clean description can help you achieve your goal.
               </p>
               <div>
-                <Link to="exercise">
+                <Link to="exercise" state={setGradeSelected}>
                   <Button
                     onClick={handleSelectGrade}
                     variant="contained"

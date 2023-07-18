@@ -13,6 +13,7 @@ import parse, {
 } from "html-react-parser";
 import { fetchQuestionCoursesSelectionOption } from "../../service/fetchCourseService";
 import { ProgressBar } from "../../Component/ProgressBar";
+import Pagination from "../../Component/Pagination";
 
 const options: HTMLReactParserOptions = {
   replace: (domNode) => {
@@ -35,6 +36,7 @@ export default function UEEQuestionDisplay() {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [selectedYear, setSelectedYear] = useState<string | number>("");
   const [totalCount, setTotalCount] = useState<number>(0);
+
   const isInitialMount = useRef(true);
 
   const getCourses = async () => {
@@ -175,6 +177,19 @@ export default function UEEQuestionDisplay() {
           )}
         </div>
       </div>
+      {/* <div>
+        <Pagination
+          //totalItems={totalCount}
+          // pageSize={10}
+          // onPageChange={onPageChange}
+          // activePage={activePage}
+
+          itemsPerPage={10}
+          totalItems={totalCount}
+          currentPage={activePage}
+          onPageChange={onPageChange}
+        />
+      </div> */}
     </div>
   );
 }

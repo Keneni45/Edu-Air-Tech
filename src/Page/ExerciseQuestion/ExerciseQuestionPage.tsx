@@ -6,12 +6,29 @@ import {
   getAvailableExerciseNumberFromServer,
 } from "../../service/fetchExerciseQuestionService";
 
-import { Exercise } from "../../models/exercises.model";
+import { ExerciseQuestion } from "../../models/exercises.model";
 import { useLocation } from "react-router-dom";
+import styles from "./exercise.module.css";
+import parse, {
+  HTMLReactParserOptions,
+  Element,
+  domToReact,
+} from "html-react-parser";
+import { ProgressBar } from "../../Component/ProgressBar";
+
+const options: HTMLReactParserOptions = {
+  replace: (domNode) => {
+    if (domNode instanceof Element && domNode.attribs) {
+      return <span>{domToReact(domNode.children)}</span>;
+    }
+  },
+};
+
+type optionType = "option_a" | "option_b" | "option_c" | "option_d";
 
 export default function ExerciseQuestionPage() {
   const [selectedExercise, setSelectedExercise] = useState("");
-  const [questions, setQuestions] = useState<Exercise[]>([]);
+  const [questions, setQuestions] = useState<ExerciseQuestion[]>([]);
   const [chapter, setChapter] = useState<SelectOption[]>([]);
   const [selectChapter, setSelectedChapter] = useState("");
   const [exerciseOptions, setExerciseOptions] = useState<SelectOption[]>([]);
@@ -67,13 +84,14 @@ export default function ExerciseQuestionPage() {
   };
   useEffect(() => {
     fetchExercise(selectChapter);
-    fetchChapter(selectedCourse, parseInt(""));
+    fetchChapter(selectedCourse, parseInt(setSelectedGrade));
   }, []);
-  // useEffect(() => {
-  //   const exerciseId = location.state.exerciseId;
-  //   if (exerciseId) getQuestion(exerciseId);
-  // }, []);
+  useEffect(() => {
+    const exerciseId = location.state.exerciseId;
+    console.log("Exercise id is   ----" + exerciseId);
 
+    if (exerciseId) getQuestion(exerciseId);
+  }, []);
   const handleSelectedExerciseNumber = (e: any) => {
     setSelectedExercise(e.target.value);
   };
@@ -96,15 +114,62 @@ export default function ExerciseQuestionPage() {
       </div>
       <div>{setSelectedGrade.grade_10}</div>\
       <p>hello:{setSelectedGrade.grade_9}</p>
-      {/* <div>
-        {questions.length > 0 ? (
-          questions.map((question, index) => (
-            <div key={index}>{question.questions}</div>
-          ))
-        ) : (
-          <p>Loading....</p>
-        )}
-      </div> */}
+      <div className={styles.questionBg1}>
+        <div className={styles.questionDisplay}>
+          <div>
+            <ProgressBar />
+          </div>
+          <div className={styles.questionDirection}>
+            <p>
+              1.1:-<b>DIRECTION:-</b>Choose the best answer by clicking on the
+              box
+            </p>
+          </div>
+          {questions.length > 0 ? (
+            <div className={styles.question}>
+              {questions.map((question, index) => (
+                <div key={index} style={{ marginTop: "5px" }}>
+                  <div className={styles.question}>
+                    {question.questionNumber}.{" "}
+                    {parse(question.questionText, options)}
+                  </div>
+
+                  <div className="question-option">
+                    <div className="checkbox">
+                      {["a", "b", "c", "d"].map((letter, i) => (
+                        <div key={i}>
+                          <label className="control">
+                            <input
+                              type="radio"
+                              name={`color-${index}`}
+                              value={"option_" + letter}
+                              className="control_input visually-hidden"
+                            />
+                            <span className="control__indicator"></span>
+                          </label>
+                          <label>
+                            <span style={{ marginLeft: "0.5rem" }}>
+                              {`${letter.toLocaleUpperCase()}. `}
+                              {parse(
+                                question[
+                                  ("option_" + letter) as optionType
+                                ].toString(),
+                                options
+                              )}
+                            </span>
+                          </label>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p>Loading...</p>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
