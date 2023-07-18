@@ -25,13 +25,13 @@ export default function GeneralQuestionPage() {
   const [selectedValue, setSelectedValue] = useState("");
 
   useEffect(() => {
-    const getQuestion = async () => {
-      const { count, questions } = await fetchGeneralQuestions(activePage);
+    const getQuestion = async (page: number) => {
+      const { count, questions } = await fetchGeneralQuestions(page);
       setQuestions(questions);
       setTotalCount(count);
     };
 
-    getQuestion();
+    getQuestion(1);
   }, [activePage]);
 
   const onPageChange = async (page: number) => {
@@ -42,24 +42,24 @@ export default function GeneralQuestionPage() {
   };
 
   return (
-    <div className={styles.questionBg1}>
+    <div className="bg-primary-success">
       <div className={styles.questionDisplay}>
         <div className={styles.questionDirection}>
-          <p>
+          <p className="text-primary mt-8" style={{ marginLeft: "340px" }}>
             1.1:-<b className="text-primary mt-8">DIRECTION:-</b>Choose the best
             answer by clicking on the box
           </p>
         </div>
-        <div className="container-fluid mb-10">
+        <div className="container">
           {questions.length > 0 ? (
             <div>
               {questions.length > 0 ? (
                 <div>
-                  <div className="list-group mb-4">
+                  <div className="list-group mb-4 ">
                     {questions.map((question, index) => (
                       <div
                         key={question._id}
-                        className="list-group-item align-item-center ">
+                        className="list-group-item text-primary">
                         {question.questionNumber + "."}
                         {parse(question.questionText, options)}
                         <div>
@@ -98,7 +98,7 @@ export default function GeneralQuestionPage() {
               )}
             </div>
           ) : (
-            <p>Loading ...</p>
+            <p className="text-primary">Loading ...</p>
           )}
 
           {/* {questions.length > 0 ? (
@@ -146,14 +146,14 @@ export default function GeneralQuestionPage() {
           )} */}
         </div>
       </div>
-      {/* <div>
-        <Pagination
+      <div>
+        {/* <Pagination
           itemsPerPage={10}
           totalItems={totalCount}
           currentPage={activePage}
           onPageChange={onPageChange}
-        />
-      </div> */}
+        /> */}
+      </div>
     </div>
   );
 }
